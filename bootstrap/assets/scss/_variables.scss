@@ -1,0 +1,13 @@
+// Colors
+$navy-blue: #002341;
+$sky-blue: #0080c9;
+$paper-grey: #e6e6e6;
+$white: #ffffff;
+
+//  Font Colors
+$base-font-color: $navy-blue;
+$accent-color: $sky-blue;
+$accent-color-hover: darken($accent-color, 10%);
+$accent-color-dark: darken($accent-color, 20%);
+$complement-color: $paper-grey;
+$background-color: $white;

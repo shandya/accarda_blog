@@ -1,0 +1,29 @@
+#site-header {
+	background: blue;
+
+	.wrapper {
+		background: white;
+	}
+}
+
+#header-logo {
+	display: block;
+	margin: 1em auto 5em;
+	width: 100%;
+	max-width: 22em;
+}
+
+#header-navbar {
+	padding: 0;
+	border: 1px solid black;
+	border-left: none;
+	border-right: none;
+
+	.navbar-right {
+		margin-right: 0;
+	}
+ 
+	.navbar-nav > li > a {
+    text-transform: uppercase; 
+  }
+}

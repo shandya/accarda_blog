@@ -1,0 +1,138 @@
+script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+script.
+  window.jQuery || document.write('<script src="../assets/javascripts/vendors/jquery-1.11.3.min.js"><\/script>')
+script(src='../assets/javascripts/vendors/bootstrap.min.js')
+script(src='../assets/javascripts/site.min.js')
+
+script.
+  $(function() {
+    $('.docs-container').each(function() {
+      var $this = $(this);
+
+      var moduleHtml = $.trim($this.find('.module-wrapper').html());
+
+      $this.find('pre > code').text(moduleHtml).html();
+    });
+
+    $('.js-show-code').on('click', function(e) {
+      e.preventDefault();
+      
+      var $this = $(this),
+          codeContainer = $this.next('.code-container');
+
+      if (codeContainer.hasClass('hide')) {
+        $this.text('Hide Code');
+      } else {
+        $this.text('Show Code');
+      }
+      codeContainer.toggleClass('hide');
+    })
+  });
+
+  var slideshowFit = function() {
+    if ($(window).width() > 767) {
+      windowHeight = $(window).height();
+      slideshowHeight = windowHeight - $('.navbar-burger-king').height() - $('.footer').height();
+      if (slideshowHeight > 600) 
+        $('#slideshow, #slideshow .container, .page--grilled-chicken, .page--grilled-chicken .container').css('height', slideshowHeight);
+    }
+  };
+
+  $(document).ready(slideshowFit);
+  $(window).resize(slideshowFit);
+
+  // Animation for Grilled Chicken Mushroom Page
+  $(function(){
+    if ($(".page--grilled-chicken")[0] && ($(window).width() > 767) ){
+      var pageGrilledChickenTimeline = new TimelineLite();
+      pageGrilledChickenTimeline.from(".page--grilled-chicken-mushroom--burger", 2, {autoAlpha:0, x:-100})
+        .from(".page--grilled-chicken-mushroom--copy", 1, {autoAlpha:0, y:-50},"-=1")
+        .from(".page--grilled-chicken-mushroom--extra", 1, {autoAlpha:0, scale:1.4, rotation: 50})
+        .from(".page--grilled-chicken-mushroom--flame-grilled", 1, {autoAlpha:0, scale:1.4, rotation: 50});
+    };
+  });
+
+  // Animation for BK Bukber Page
+  $(function(){
+    if ($(".page--bk-bukber")[0] && ($(window).width() > 767) ){
+      $('#bk_bukber_intro').waypoint(function() {
+        var tl = new TimelineLite();
+        tl.from(".bk-bukber-header", 2, {autoAlpha:0, y:-100})
+          .from(".bk-bukber-rame", 1, {autoAlpha:0, scale:1.4, rotation: 50})
+          .from(".bk-bukber-hemat", 1, {autoAlpha:0, scale:1.4, rotation: 50})
+          .from(".bk-bukber-komplit", 1, {autoAlpha:0, scale:1.4, rotation: 50});
+        this.destroy();
+      },{offset: 120 });
+
+      $('#bk_hemat').waypoint(function() {
+        var tl = new TimelineLite();
+        tl.from("#bk_hemat .featured-menu-image", 2, {autoAlpha:0, x:-100})
+          .from("#bk_hemat .featured-menu-content", 1, {autoAlpha:0, x:+100},"-=1");
+        this.destroy();
+      },{offset: 120 });
+
+      $('#bk_komplit').waypoint(function() {
+        var tl = new TimelineLite();
+        tl.from("#bk_komplit .featured-menu-image", 2, {autoAlpha:0, x:+100})
+          .from("#bk_komplit .featured-menu-content", 1, {autoAlpha:0, x:-100},"-=1");
+        this.destroy();
+      },{offset: 120 });
+
+      $('#bk_rame').waypoint(function() {
+        var tl = new TimelineLite();
+        tl.from("#bk_rame .featured-menu-image", 2, {autoAlpha:0, x:-100})
+          .from("#bk_rame .featured-menu-content", 1, {autoAlpha:0, x:+100},"-=1");
+        this.destroy();
+      },{offset: 120 });
+
+      $('#bk_sundae').waypoint(function() {
+        var tl = new TimelineLite();
+        tl.from("#bk_sundae .featured-menu-image", 2, {autoAlpha:0, y:-100})
+          .from("#bk_sundae .featured-menu-content", 1, {autoAlpha:0, x:-100},"-=1");
+        this.destroy();
+      },{offset: 420 });
+    };
+  });
+
+  // Animation for Burger King Home Page Slide Show
+  $(function(){
+
+    var $slides = $(".slide");
+    var currentSlide = 0; 
+    var stayTime = 9999999;
+    var slideTime = 1.3;
+
+    TweenLite.set($slides.filter(":gt(0)"), {autoAlpha:0});
+    TweenLite.delayedCall(stayTime, nextSlide);
+    
+    var tl = new TimelineLite({delay:1.3});
+    tl.from(".slide-entrance--in-right", 2, {autoAlpha:0, x:100})
+      .from(".slide-entrance--in-top", 1, {autoAlpha:0, y:-50},"-=1")
+      .from(".slide-entrance--scale-rotate", 1, {autoAlpha:0, scale:1.4, rotation: 50});
+
+    function nextSlide(){
+      TweenMax.killAll(false, false, true); 
+      tl.kill();  
+
+      TweenLite.to( $slides.eq(currentSlide), slideTime, {autoAlpha:0} );
+      currentSlide = ++currentSlide % $slides.length;
+      TweenLite.to( $slides.eq(currentSlide), slideTime, {autoAlpha:1} );
+      tl.restart({delay: slideTime});  
+      TweenLite.delayedCall(stayTime, nextSlide);
+    }
+
+    function prevSlide(){    
+      TweenMax.killAll(false, false, true);   
+      tl.kill();  
+
+      TweenLite.to( $slides.eq(currentSlide), slideTime, {autoAlpha:0} );
+      currentSlide = --currentSlide % $slides.length;
+      TweenLite.to( $slides.eq(currentSlide), slideTime, {autoAlpha:1} );
+      tl.restart({delay: slideTime});  
+      TweenLite.delayedCall(stayTime, nextSlide);
+    }
+
+    $('.btn-slideshow-navigator--next').click(nextSlide);
+    $('.btn-slideshow-navigator--prev').click(prevSlide);
+
+  });

@@ -1,0 +1,70 @@
+.entry {
+	position: relative;
+	border-bottom: 1px solid $navy-blue;
+	margin-bottom: 1em;
+}
+
+.entry-header {
+	a {
+		color: $base-font-color;
+
+		&:hover {
+			color: lighten($base-font-color, 20%);
+			text-decoration: no;
+		}
+
+		&:active,
+		&:focus {
+			color: darken($base-font-color, 20%);
+		}
+	}
+}
+
+.entry-body {
+	padding-bottom: 2rem;
+}
+
+.entry-title {
+	margin: 1rem 0 1.2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 2.4rem;
+	line-height: 1.2em;
+}
+
+.entry-thumbnail {
+	margin-bottom: 2rem;
+
+	img {
+		max-width: 100%;
+		width: 100%;
+	}
+} 
+
+.read-more-link {
+	display: block;
+	margin-top: 1.6em;
+	color: $accent-color;
+	text-transform: uppercase;
+}
+
+.entry-sidebar {
+	padding-bottom: 3em;
+
+	.read-more-link {
+		text-align: right;
+	}
+}
+
+.entry-spotlight {
+	.entry-body {
+
+		@include breakpoint(small) {
+			position: absolute;
+			padding-top: 2rem;
+			top: 0;
+			right: 5%;
+			background: white;
+		}
+	}
+}
