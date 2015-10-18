@@ -63,17 +63,27 @@ module.exports = function(grunt) {
       }
     },
 
-    autoprefixer: {
+    postcss: {
       options: {
-        browsers: ['last 2 version']
+        map: true,
+        processors: [
+          require('postcss-will-change')(),
+          require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
+          require('postcss-color-rgba-fallback')(),
+          require('postcss-opacity')(),
+          require('postcss-pseudoelements')(),
+          require('postcss-vmin')(),
+          require('pixrem')()
+          //require('cssnano')() // minify the result
+        ]
       },
-      single_file: {
+      dist: {
         src: stylesDir + 'site.css',
         dest: stylesDir + 'site.prefixed.css'
       }
     },
 
-    csso: {
+/*    csso: {
       compress: {
         options: {
           banner: bannerContent,
@@ -84,7 +94,7 @@ module.exports = function(grunt) {
           'assets/css/site.prefixed.min.css': ['<%= autoprefixer.single_file.dest %>']
         }
       }
-    },
+    },*/
 
     // jshint: {
     //   options: {
@@ -170,7 +180,7 @@ module.exports = function(grunt) {
         files: [
           scssDir + "**/*.scss"
         ],
-        tasks: ["sass", "autoprefixer", "csso:compress"],
+        tasks: ["sass", "postcss"],
         options: {
           nospawn: true
         }
@@ -192,7 +202,7 @@ module.exports = function(grunt) {
   });
 
   // Default task(s)
-  grunt.registerTask('default', ["jade", "sass", "autoprefixer"/*, "csso:compress", "concat", "uglify"*/]);
+  grunt.registerTask('default', ["jade", "sass", "postcss", /*"csso:compress", "concat" , "uglify"*/]);
   grunt.registerTask('optimg', ["imagemin"]);
 
   grunt.registerTask('dev', ["watch"]);

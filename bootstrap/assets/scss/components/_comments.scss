@@ -1,0 +1,40 @@
+.comment-wrapper-title {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid $base-font-color;
+  color: $base-font-color;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.comment-list {
+  list-style: none;
+  padding-left: 0;
+
+  .children {
+    list-style: none;
+  }
+}
+
+.comment {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid $paper-grey;
+}
+
+.comment-title {
+  color: $base-font-color;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.comment-content {
+  color: $base-font-color;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.reply-link {
+  color: $accent-color;
+  text-transform: uppercase;
+}

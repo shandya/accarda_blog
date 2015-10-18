@@ -7452,4 +7452,113 @@ button.close {
   background: #002341;
 }
 
+.pagination-container {
+  text-align: center;
+}
+
+.pagination-label {
+  margin-bottom: 0;
+  color: #002341;
+  text-transform: uppercase;
+}
+
+.pagination {
+  margin-top: 1rem;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+  background: #e6e6e6;
+  border-color: white;
+  color: #002341;
+}
+
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > li > span:hover,
+.pagination > li > span:focus {
+  background: #002341;
+  border-color: white;
+  color: white;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span,
+.pagination > .active > span:hover,
+.pagination > .active > span:focus {
+  background: #0080c9;
+  border: 1px solid white;
+}
+
+.pagination > li:first-child > a,
+.pagination > li:first-child > span,
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-radius: 0;
+}
+
+.shortcut-button {
+  width: 50%;
+}
+@media (min-width: 992px) {
+  .shortcut-button {
+    width: 33.333%;
+  }
+}
+.shortcut-button .button-label {
+  color: #0080c9;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+.shortcut-button .button-title {
+  color: #002341;
+  line-height: 1.6;
+}
+.shortcut-button.next-shortcut-button {
+  text-align: right;
+}
+
+.comment-wrapper-title {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #002341;
+  color: #002341;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.comment-list {
+  list-style: none;
+  padding-left: 0;
+}
+.comment-list .children {
+  list-style: none;
+}
+
+.comment {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.comment-title {
+  color: #002341;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.comment-content {
+  color: #002341;
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.reply-link {
+  color: #0080c9;
+  text-transform: uppercase;
+}
+
 /*# sourceMappingURL=site.css.map */

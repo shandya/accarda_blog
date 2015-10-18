@@ -1,0 +1,23 @@
+.shortcut-button {
+  width: 50%;
+
+    @include breakpoint(medium) {
+      width: 33.333%;
+    }
+
+  .button-label {
+    color: $accent-color;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.2em;
+  }
+
+  .button-title {
+    color: $base-font-color;
+    line-height: 1.6
+  }
+
+  &.next-shortcut-button {
+    text-align: right;
+  }
+}
