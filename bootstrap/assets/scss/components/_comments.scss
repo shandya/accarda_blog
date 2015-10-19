@@ -22,10 +22,19 @@
   border-bottom: 1px solid $paper-grey;
 }
 
-.comment-title {
+.comment-header {
   color: $base-font-color;
+}
+
+.comment-title {
+  margin-bottom: 0.2rem;
   font-size: 1.4rem;
   font-weight: 700;
+}
+
+.comment-meta-info {
+  font-style: italic;
+  font-size: 0.9em;
 }
 
 .comment-content {
@@ -36,5 +45,6 @@
 
 .reply-link {
   color: $accent-color;
+  font-size: 0.8em;
   text-transform: uppercase;
 }
