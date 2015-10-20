@@ -16,13 +16,14 @@
   background: $paper-grey;
   border-color: white;
   color: $base-font-color;
+  transition: 0.1s all ease-in-out;
 }
 
 .pagination > li > a:hover, 
 .pagination > li > a:focus, 
 .pagination > li > span:hover, 
 .pagination > li > span:focus {
-  background: $navy-blue;
+  background: darken($paper-grey,10%);
   border-color: white;
   color: white;
 }

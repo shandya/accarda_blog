@@ -1,0 +1,15 @@
+.btn.btn-accarda {
+	display: inline-block;
+	color: $accent-color;
+	text-transform: uppercase;
+	transition: 0.1s all ease-in-out;
+
+	&:hover {
+		background: $paper-grey;
+	}
+
+	&:active,
+	&:focus {
+		background: darken($paper-grey,10%);
+	}
+}

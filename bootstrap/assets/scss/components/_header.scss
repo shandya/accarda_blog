@@ -1,5 +1,4 @@
 #site-header {
-	background: blue;
 
 	.wrapper {
 		background: white;
@@ -24,6 +23,14 @@
 	}
  
 	.navbar-nav > li > a {
-    text-transform: uppercase; 
-  }
+	    text-transform: uppercase;
+	    color: black; 
+	    transition: 0.1s all ease-in-out;
+	}
+
+    .nav > li > a:hover, 
+    .nav > li > a:focus {
+		color: $accent-color;
+/* 		background: none; */
+    }
 }

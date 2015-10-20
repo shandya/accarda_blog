@@ -7265,13 +7265,27 @@ button.close {
   }
 }
 .container {
-  padding-left: 6em;
-  padding-right: 6em;
+  /*     padding-left: 6em;
+      padding-right: 6em; */
 }
 
-#site-header {
-  background: blue;
+body {
+  border: 10px solid #002341;
 }
+
+.btn.btn-accarda {
+  display: inline-block;
+  color: #0080c9;
+  text-transform: uppercase;
+  transition: 0.1s all ease-in-out;
+}
+.btn.btn-accarda:hover {
+  background: #e6e6e6;
+}
+.btn.btn-accarda:active, .btn.btn-accarda:focus {
+  background: #cdcdcd;
+}
+
 #site-header .wrapper {
   background: white;
 }
@@ -7294,6 +7308,13 @@ button.close {
 }
 #header-navbar .navbar-nav > li > a {
   text-transform: uppercase;
+  color: black;
+  transition: 0.1s all ease-in-out;
+}
+#header-navbar .nav > li > a:hover,
+#header-navbar .nav > li > a:focus {
+  color: #0080c9;
+  /* 		background: none; */
 }
 
 .entry {
@@ -7428,13 +7449,14 @@ button.close {
   background: #e6e6e6;
   border-color: white;
   color: #002341;
+  transition: 0.1s all ease-in-out;
 }
 
 .pagination > li > a:hover,
 .pagination > li > a:focus,
 .pagination > li > span:hover,
 .pagination > li > span:focus {
-  background: #002341;
+  background: #cdcdcd;
   border-color: white;
   color: white;
 }
@@ -7532,6 +7554,40 @@ button.close {
   color: #0080c9;
   font-size: 0.8em;
   text-transform: uppercase;
+}
+
+.comment-respond .comment-respond-title {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #002341;
+  color: #002341;
+  font-size: 16px;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.comment-respond .comment-form-input input[type="text"],
+.comment-respond .comment-form-input input[type="email"],
+.comment-respond .comment-form-input textarea {
+  width: 100%;
+  margin: 10px 0px;
+  margin: 1rem 0px;
+  padding: 16px 20px;
+  padding: 1.6rem 2rem;
+  border: 1px solid #f4f4f4;
+  background: #f4f4f4 none repeat scroll 0% 0%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) inset;
+  transition: 0.1s all ease-in-out;
+}
+.comment-respond .comment-form-input input[type="text"]:focus,
+.comment-respond .comment-form-input input[type="email"]:focus,
+.comment-respond .comment-form-input textarea:focus {
+  border: 1px solid #cccccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15) inset;
+}
+.comment-respond .form-submit {
+  display: block;
+  text-align: right;
+  margin: 20px 0px;
+  margin: 2rem 0px;
 }
 
 /*# sourceMappingURL=site.prefixed.css.map */
