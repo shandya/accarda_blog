@@ -7417,7 +7417,7 @@ body {
 }
 
 .entry-sidebar {
-  padding-bottom: 3em;
+  /* 	padding-bottom: 3em; */
 }
 .entry-sidebar .read-more-link {
   text-align: right;
@@ -7621,6 +7621,33 @@ body {
   display: block;
   text-align: right;
   margin: 2rem 0px;
+}
+
+.page-footer {
+  background: #002341;
+}
+
+.decoration-holding-hands {
+  display: block;
+  margin: 10rem auto 0;
+  max-width: 6rem;
+}
+
+.page-footer .motto {
+  margin-top: 1.3rem;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.entry-roll-wrapper {
+  padding-top: 3rem;
+}
+
+.pagination-wrapper {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 /*# sourceMappingURL=site.css.map */
