@@ -5,12 +5,14 @@
 }
 
 .entry-header {
-	a {
+	.entry-title-link {
 		color: $base-font-color;
+		transition: 0.2s all ease-in-out;
 
 		&:hover {
 			color: lighten($base-font-color, 20%);
-			text-decoration: no;
+			text-decoration: none;
+			transition: 0.1s all ease-in-out;
 		}
 
 		&:active,
@@ -46,6 +48,18 @@
 	margin-top: 1.6em;
 	color: $accent-color;
 	text-transform: uppercase;
+	transition: 0.2s all ease-in-out;
+
+	&:hover {
+		color: lighten($accent-color, 20%);
+		text-decoration: none;
+		transition: 0.1s all ease-in-out;
+	}
+
+	&:active,
+	&:focus {
+		color: darken($accent-color, 20%);
+	}
 }
 
 .entry-sidebar {

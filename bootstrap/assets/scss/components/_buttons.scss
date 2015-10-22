@@ -13,3 +13,59 @@
 		background: darken($paper-grey,10%);
 	}
 }
+
+
+a .icon-ico-chevron {
+	display: inline-block;
+	padding-bottom: 0.2em;
+	vertical-align: middle;
+}
+
+.like-wrapper {
+	text-align: right;
+}
+
+.like-button {
+	display: inline-block;
+}
+
+.like-button-input {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+.like-button-input + .like-button-label {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  background: #0080c9;
+  padding: 0.5rem 1rem;
+  color: white;
+  outline: none;
+  user-select: none;
+	transition: 0.2s all ease-in-out;
+}
+
+.like-button-input:checked + .like-button-label {
+  background-color: #002341;
+}
+
+.like-count {
+	position: relative;
+	display: inline-block;
+	border: 1px solid $navy-blue;
+	padding: 0.5rem 2rem;
+	box-shadow: 0 0 3px rgba(0,0,0,0.3);
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 0;
+		width: 8px;
+		height: 15px;
+		background: url("../images/decoration-like-btn.png");
+		background-size: 100% 100%;
+		transform: translate(-100%, -50%);
+	}
+}

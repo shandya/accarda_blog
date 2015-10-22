@@ -1,0 +1,30 @@
+doctype
+html(class="no-js", lang="en")
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    block title
+      title Style Guide
+
+    link(rel='stylesheet', href='../assets/stylesheets/docs.css')
+    link(rel='stylesheet', href='../assets/stylesheets/site.prefixed.css')
+    link(rel='stylesheet', href='../assets/stylesheets/vendors/prism.css')
+
+  body
+
+    header.docs-header
+      h1 Site Name
+      h2 Site Name style guide
+      p Managed by Shandy Ardiansyah
+
+    .container.docs-container
+      section
+        h3 Buttons
+        .module-wrapper
+          include ../components/modules/buttons.html
+
+
+
+
+    include ../components/_includes/footer
+    include ../components/_includes/scripts

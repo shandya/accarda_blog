@@ -28,6 +28,15 @@
 	line-height: 1.2em;
 }
 
+.record-subtitle {
+	margin-top: -1rem;
+	margin-bottom: 2rem;
+}
+
+.record-content {
+  line-height: 1.8em;
+}
+
 .record + .record::before {
 	content: "";
 	display: block;
@@ -38,3 +47,8 @@
 	left: 40%;
 	background: $navy-blue;
 }
+
+/* .record + .record:last-of-type::before {
+	width: 0;
+	height: 0;
+} */

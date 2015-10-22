@@ -25,12 +25,13 @@
 	.navbar-nav > li > a {
 	    text-transform: uppercase;
 	    color: black; 
-	    transition: 0.1s all ease-in-out;
+	    transition: 0.2s all ease-in-out;
 	}
 
     .nav > li > a:hover, 
     .nav > li > a:focus {
-		color: $accent-color;
-/* 		background: none; */
+			color: $accent-color;
+			background: none; 
+			transition: 0.2s all ease-in-out;
     }
 }
