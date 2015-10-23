@@ -7375,7 +7375,6 @@ body {
 }
 
 .btn.btn-accarda {
-  display: inline-block;
   color: #0080c9;
   text-transform: uppercase;
   transition: 0.1s all ease-in-out;
@@ -7469,6 +7468,7 @@ a .icon-ico-chevron {
 }
 @media (min-width: 768px) {
   #header-logo {
+    max-width: 28rem;
     margin-bottom: 5rem;
     width: 100%;
   }
@@ -7492,17 +7492,25 @@ a .icon-ico-chevron {
 }
 @media (min-width: 992px) {
   #header-navbar .navbar-nav {
-    margin: 7.5px 15px;
+    margin: 7.5px -15px;
   }
 }
 #header-navbar .navbar-nav > li > a {
   text-transform: uppercase;
   color: black;
   transition: 0.2s all ease-in-out;
+  font-size: 10px;
+  font-size: 1rem;
 }
 @media (min-width: 768px) {
   #header-navbar .navbar-nav > li > a {
-    font-size: 1rem;
+    padding: 15px 10px;
+  }
+}
+@media (min-width: 992px) {
+  #header-navbar .navbar-nav > li > a {
+    padding: 15px;
+    font-size: 1.4rem;
   }
 }
 #header-navbar .nav > li > a:hover,
@@ -8081,8 +8089,7 @@ a .icon-ico-chevron {
 }
 
 .record-footer-wrapper .section-header {
-  margin-top: 60px;
-  margin-top: 6rem;
+  margin-top: 0;
   font-size: 22px;
   font-size: 2.2rem;
   font-weight: bold;
