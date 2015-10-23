@@ -22,7 +22,13 @@ a .icon-ico-chevron {
 }
 
 .like-wrapper {
-	text-align: right;
+    text-align: center;
+    margin-top: 2rem;
+
+ 	@include breakpoint(small) {
+	    text-align: right;
+	    margin-top: 0;
+	}
 }
 
 .like-button {

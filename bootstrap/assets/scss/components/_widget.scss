@@ -1,0 +1,61 @@
+.widget-title {
+	color: $accent-color;
+	text-transform: uppercase;
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 1.2em;
+}
+
+.widget {
+	ul {
+		padding-left: 0;
+		list-style: none;
+	}
+
+	li {
+		position: relative;
+
+		&::before {
+			content: "\e903";
+			color: $accent-color;
+			font-family: 'icomoon';
+			speak: none;
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			text-transform: none;
+			line-height: 1;
+			transition: 0.2s all ease-in-out;
+			/* Better Font Rendering =========== */
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		&:hover::before {
+			color: lighten($accent-color, 20%);
+		  transition: 0.1s all ease-in-out;
+		}
+
+		&:active::before,
+		&:focus::before {
+			color: darken($accent-color, 20%);
+		}
+	}
+	li a {
+    display: inline-block;
+		padding: 0.5rem 1rem;
+		color: $accent-color;
+		transition: 0.2s all ease-in-out;
+
+		&:hover {
+			color: lighten($accent-color, 20%);
+		  transition: 0.1s all ease-in-out;
+		  text-decoration: none;
+		}
+
+		&:active,
+		&:focus {
+			color: darken($accent-color, 20%);
+		}
+	}
+}

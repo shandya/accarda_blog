@@ -49,6 +49,11 @@
 	color: $accent-color;
 	text-transform: uppercase;
 	transition: 0.2s all ease-in-out;
+    text-align: center;
+
+ 	@include breakpoint(small) {
+	    text-align: left;
+	}
 
 	&:hover {
 		color: lighten($accent-color, 20%);
@@ -66,7 +71,11 @@
 /* 	padding-bottom: 3em; */
 
 	.read-more-link {
-		text-align: right;
+	    text-align: center;
+
+	 	@include breakpoint(small) {
+		    text-align: right;
+		}
 	}
 }
 
