@@ -7460,16 +7460,6 @@ a .icon-ico-chevron {
 
 .like-button {
   display: inline-block;
-}
-
-.like-button-input {
-  position: absolute;
-  margin-left: -9999px;
-  visibility: hidden;
-}
-
-.like-button-input + .like-button-label {
-  display: inline-block;
   position: relative;
   cursor: pointer;
   background: #0080c9;
@@ -7479,9 +7469,10 @@ a .icon-ico-chevron {
   user-select: none;
   transition: 0.2s all ease-in-out;
 }
-
-.like-button-input:checked + .like-button-label {
+.like-button:hover, .like-button.liked {
+  text-decoration: none;
   background-color: #002341;
+  color: white;
 }
 
 .like-count {
@@ -7576,6 +7567,9 @@ a .icon-ico-chevron {
   border-bottom: 1px solid #002341;
   margin-bottom: 1em;
 }
+.entry:last-of-type {
+  border-bottom: none;
+}
 
 .entry-header .entry-title-link {
   color: #002341;
@@ -7608,6 +7602,7 @@ a .icon-ico-chevron {
 .entry-thumbnail img {
   max-width: 100%;
   width: 100%;
+  height: auto;
 }
 
 .read-more-link {
@@ -7644,8 +7639,11 @@ a .icon-ico-chevron {
   }
 }
 
+.entry.entry-spotlight {
+  border-bottom: 1px solid #002341;
+}
 @media (min-width: 768px) {
-  .entry-spotlight .entry-body {
+  .entry.entry-spotlight .entry-body {
     position: absolute;
     padding-top: 2rem;
     top: 0;
@@ -7718,46 +7716,59 @@ a .icon-ico-chevron {
   text-transform: uppercase;
 }
 
-.pagination {
-  margin-top: 1rem;
+.page-numbers {
+  display: inline-block;
+  padding-left: 0;
+  margin: 1rem 0 2rem;
+  list-style: none;
 }
 
-.pagination > li > a,
-.pagination > li > span {
+.page-numbers > li {
+  display: inline-block;
+  margin: 0 -1px;
+}
+
+.page-numbers > li > a,
+.page-numbers > li > span {
+  width: 3.6rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
   background: #e6e6e6;
-  border-color: white;
   color: #002341;
   transition: 0.1s all ease-in-out;
 }
 
-.pagination > li > a:hover,
-.pagination > li > a:focus,
-.pagination > li > span:hover,
-.pagination > li > span:focus {
+.page-numbers > li > a:hover,
+.page-numbers > li > a:focus,
+.page-numbers > li > span:hover,
+.page-numbers > li > span:focus {
   background: #cdcdcd;
-  border-color: white;
   color: white;
+  text-decoration: none;
 }
 
-.pagination > .active > a,
-.pagination > .active > a:hover,
-.pagination > .active > a:focus,
-.pagination > .active > span,
-.pagination > .active > span:hover,
-.pagination > .active > span:focus {
+.page-numbers > li > .current,
+.page-numbers > li > .current:hover,
+.page-numbers > li > .current:focus {
+  color: white;
   background: #0080c9;
-  border: 1px solid white;
 }
 
-.pagination > li:first-child > a,
-.pagination > li:first-child > span,
-.pagination > li:last-child > a,
-.pagination > li:last-child > span {
+.page-numbers > li:first-child > a,
+.page-numbers > li:first-child > span,
+.page-numbers > li:last-child > a,
+.page-numbers > li:last-child > span {
   border-radius: 0;
 }
 
 .shortcut-button {
   width: 50%;
+  /*   &:hover {
+    .button-label {
+      color: lighten($accent-color, 20%);
+      transition: 0.1s all ease-in-out;
+    }
+  } */
 }
 @media (min-width: 992px) {
   .shortcut-button {
@@ -7777,10 +7788,6 @@ a .icon-ico-chevron {
 }
 .shortcut-button.next-shortcut-button {
   text-align: right;
-}
-.shortcut-button:hover .button-label {
-  color: #30b4ff;
-  transition: 0.1s all ease-in-out;
 }
 
 .comment-wrapper {
@@ -7904,13 +7911,13 @@ a .icon-ico-chevron {
 .footer-links a:hover {
   color: white;
 }
-.footer-links .footer-link {
+.footer-links .menu-item {
   position: relative;
   padding: 0 1rem;
   margin: 0 0 0 -5px;
   border-right: 1px solid white;
 }
-.footer-links .footer-link:last-of-type {
+.footer-links .menu-item:last-of-type {
   border-right: none;
 }
 
@@ -8067,6 +8074,16 @@ a .icon-ico-chevron {
 }
 .widget li a:active, .widget li a:focus {
   color: #003f63;
+}
+
+.archive-title {
+  margin-top: 0;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #002341;
+  color: #002341;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .entry-roll-wrapper {

@@ -44,15 +44,29 @@
 
       <footer class="post-footer">
         <div class="like-wrapper">
-          <div class="like-button">
-            <input class="like-button-input" type="checkbox" id="like-box">
-            <label for="like-box" class="like-button-label"><span class="icon-ico-thumbup"></span> Gefällt mir</label>
-          </div>
-          <div class="like-count">
-            103
-          </div>
+          <?php echo getPostLikeLink( get_the_ID() ); ?>
         </div>
       </footer>
     </div>
   </div>
 </article>
+
+<div class="shortcut-button-containers clearfix">
+  <?php 
+    $prevPost = get_previous_post();
+    if (!empty( $prevPost )) : ?>
+      <div class="shortcut-button prev-shortcut-button pull-left">
+        <h5 class="button-label"><?php echo __( 'Vorheriger Artikel') ?></h5>
+        <?php previous_post_link('<p class="button-title">%link</p>'); ?> 
+      </div>
+  <?php endif; ?>
+
+  <?php 
+    $nextPost = get_next_post();
+    if (!empty( $nextPost )) : ?>
+    <div class="shortcut-button next-shortcut-button pull-right">
+      <h5 class="button-label"><?php echo __( 'Nachster Artikel') ?></h5>
+      <?php next_post_link('<p class="button-title">%link</p>'); ?> 
+    </div>
+  <?php endif; ?>
+</div>

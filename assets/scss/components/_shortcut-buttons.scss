@@ -22,10 +22,10 @@
     text-align: right;
   }
 
-  &:hover {
-    .button-label {
-      color: lighten($accent-color, 20%);
-      transition: 0.1s all ease-in-out;
-    }
+/*   &:hover {
+  .button-label {
+    color: lighten($accent-color, 20%);
+    transition: 0.1s all ease-in-out;
   }
+} */
 }

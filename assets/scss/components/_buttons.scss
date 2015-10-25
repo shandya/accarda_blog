@@ -32,15 +32,6 @@ a .icon-ico-chevron {
 
 .like-button {
 	display: inline-block;
-}
-
-.like-button-input {
-  position: absolute;
-  margin-left: -9999px;
-  visibility: hidden;
-}
-.like-button-input + .like-button-label {
-  display: inline-block;
   position: relative;
   cursor: pointer;
   background: #0080c9;
@@ -48,11 +39,14 @@ a .icon-ico-chevron {
   color: white;
   outline: none;
   user-select: none;
-	transition: 0.2s all ease-in-out;
-}
+  transition: 0.2s all ease-in-out;
 
-.like-button-input:checked + .like-button-label {
-  background-color: #002341;
+  &:hover,
+  &.liked {
+    text-decoration: none;
+    background-color: #002341;
+    color: white;
+  }
 }
 
 .like-count {

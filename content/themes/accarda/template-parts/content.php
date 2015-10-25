@@ -41,13 +41,7 @@
 
 			<div class="entry-footer">
 				<div class="like-wrapper">
-				  <div class="like-button">
-					  <input class="like-button-input" type="checkbox" id="like-box-<?php the_ID(); ?>">
-					  <label for="like-box-<?php the_ID(); ?>" class="like-button-label"><span class="icon-ico-thumbup"></span> Gefällt mir</label>
-				  </div>
-				  <div class="like-count">
-				    103
-				  </div>
+
 				</div>
 			</div>
 		</div>

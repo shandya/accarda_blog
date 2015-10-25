@@ -32,14 +32,22 @@
       </div>
 
       <div class="col-xs-12 col-sm-6 col-sm-pull-6">
-        <ul class="list-inline footer-links">
-          <li class="footer-link"><a href="">Staertseite</a></li>
-          <li class="footer-link"><a href="">Mitmachen</a></li>
-          <li class="footer-link"><a href="">Redaktion</a></li>
-          <li class="footer-link"><a href="">Kontakt</a></li>
-          <li class="footer-link"><a href="">Impressum</a></li>
-        </ul>
-        <p class="copyright">&copy; 2015 Accarda AG, Alle Rechte vorbehalten </p>
+
+
+        <?php
+
+        $defaults = array(
+          'theme_location'  => 'footer',
+          'menu'            => 'footer',
+          'items_wrap'      => '<ul id="%1$s" class="%2$s list-inline footer-links">%3$s</ul>',
+          'depth'           => 0,
+          'walker'          => ''
+        );
+
+        wp_nav_menu( $defaults );
+
+        ?>
+        <p class="copyright">&copy; <?php echo date("Y") ?> Accarda AG, Alle Rechte vorbehalten </p>
       </div>
     </div>
   </div>
@@ -49,6 +57,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/jquery-1.11.3.min.js"><\/script>')</script>
     <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/bootstrap.min.js"></script>
+    <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/post-like.min.js"></script>
     <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/site.min.js"></script>
     <?php wp_footer(); ?>
   </body>

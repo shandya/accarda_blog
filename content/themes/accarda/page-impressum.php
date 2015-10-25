@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all pages.
+ * The template for displaying page impressum
  *
  * This is the template that displays all pages by default.
  * Please note that this is the WordPress construct of pages
@@ -14,6 +14,7 @@
 
 get_header(); ?>
 
+
 <div class="body--page">
   <section class="record-spotlight-wrapper">
     <div class="container">
@@ -21,12 +22,9 @@ get_header(); ?>
         <div class="col-xs-12">
           <?php
             while ( have_posts() ) : the_post(); 
-              get_template_part( 'template-parts/content', 'page' ); 
 
-              // If comments are open or we have at least one comment, load up the comment template.
-              if ( comments_open() || get_comments_number() ) :
-                comments_template();
-              endif;
+              get_template_part( 'template-parts/content', 'page-impressum' ); 
+
             endwhile; // End of the loop. 
           ?>
         </div>

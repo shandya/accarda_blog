@@ -8,39 +8,47 @@
   text-transform: uppercase;
 }
 
-.pagination {
-  margin-top: 1rem;
+.page-numbers {
+  display: inline-block;
+  padding-left: 0;
+  margin: 1rem 0 2rem;
+  list-style: none;
 }
-.pagination > li > a, 
-.pagination > li > span {
+
+.page-numbers > li {
+  display: inline-block;
+  margin: 0 -1px;
+}
+
+.page-numbers > li > a, 
+.page-numbers > li > span {
+  width: 3.6rem;
+  height: 3.6rem;
+  line-height: 3.6rem;
   background: $paper-grey;
-  border-color: white;
   color: $base-font-color;
   transition: 0.1s all ease-in-out;
 }
 
-.pagination > li > a:hover, 
-.pagination > li > a:focus, 
-.pagination > li > span:hover, 
-.pagination > li > span:focus {
+.page-numbers > li > a:hover, 
+.page-numbers > li > a:focus, 
+.page-numbers > li > span:hover, 
+.page-numbers > li > span:focus {
   background: darken($paper-grey,10%);
-  border-color: white;
   color: white;
+  text-decoration: none;
 }
 
-.pagination > .active > a, 
-.pagination > .active > a:hover, 
-.pagination > .active > a:focus, 
-.pagination > .active > span, 
-.pagination > .active > span:hover, 
-.pagination > .active > span:focus {
+.page-numbers > li > .current, 
+.page-numbers > li > .current:hover, 
+.page-numbers > li > .current:focus {
+  color: white;
   background: $accent-color;
-  border: 1px solid white;
 }
 
-.pagination > li:first-child > a, 
-.pagination > li:first-child > span,
-.pagination > li:last-child > a, 
-.pagination > li:last-child > span {
+.page-numbers > li:first-child > a, 
+.page-numbers > li:first-child > span,
+.page-numbers > li:last-child > a, 
+.page-numbers > li:last-child > span {
   border-radius: 0;
 }

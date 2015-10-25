@@ -35,6 +35,14 @@ get_header(); ?>
         <?php endwhile; ?>
         </div>
       </div>
+
+      <div class="row">
+        <div class="col-xs-12 pagination-wrapper">
+          <nav class="pagination-container">
+            <?php include('pagination.php'); ?>
+          </nav>
+        </div>
+      </div>
     </div>
   </section>
 </div>

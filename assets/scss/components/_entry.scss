@@ -2,6 +2,10 @@
 	position: relative;
 	border-bottom: 1px solid $navy-blue;
 	margin-bottom: 1em;
+
+	&:last-of-type {
+		border-bottom: none;
+	}
 }
 
 .entry-header {
@@ -40,6 +44,7 @@
 	img {
 		max-width: 100%;
 		width: 100%;
+		height: auto;
 	}
 } 
 
@@ -79,7 +84,9 @@
 	}
 }
 
-.entry-spotlight {
+.entry.entry-spotlight {
+	border-bottom: 1px solid $navy-blue;
+
 	.entry-body {
 
 		@include breakpoint(small) {
