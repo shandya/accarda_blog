@@ -1,0 +1,100 @@
+.page-footer {
+  position: relative;
+  background: #002341;
+  padding-bottom: 6rem;
+}
+
+.decoration-holding-hands {
+  display: block;
+  margin: 10rem auto 0;
+  max-width: 6rem;
+}
+
+.page-footer .motto {
+  margin-top: 1.3rem;
+  margin-bottom: 7rem;
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.footer-links {
+  text-align: center;
+
+  @include breakpoint(small) {
+    text-align: left;
+  }
+
+  a {
+    color: white;
+    font-size: 0.9em;
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  .footer-link {
+    position: relative;
+    padding: 0 1rem;
+    margin: 0 0 0 -5px;
+    border-right: 1px solid white;
+
+    &:last-of-type {
+      border-right: none;
+    }
+  }
+}
+
+.copyright {
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+
+  @include breakpoint(small) {
+    text-align: left;
+  }
+}
+
+.social-links {
+  text-align: center;
+
+  @include breakpoint(small) {
+    text-align: right;
+  }
+
+  li:first-of-type {
+    display: block;
+    margin-bottom: 1rem;
+
+    @include breakpoint(small) {
+      display: inline-block;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.social-link-label {
+  display: block;
+  color: white;
+  font-size: 0.9em;
+}
+
+.social-link {
+  display: block;
+  padding: 1rem 1rem;
+  background: white;
+  border-radius: 50%;
+  color: black;
+  font-size: 2rem;
+  text-decoration: none;
+  line-height: 2rem;
+  transition: 0.2s all ease-in-out;
+
+  &:hover {
+    text-decoration: none;
+    color: $accent-color;
+    transition: 0.1s all ease-in-out;
+  }
+}
