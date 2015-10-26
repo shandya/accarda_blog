@@ -7464,12 +7464,19 @@ a .icon-ico-chevron {
   cursor: pointer;
   background: #0080c9;
   padding: 0.5rem 1rem;
+  margin-right: 0.3rem;
   color: white;
   outline: none;
   user-select: none;
   transition: 0.2s all ease-in-out;
 }
-.like-button:hover, .like-button.liked {
+.like-button:hover {
+  text-decoration: none;
+  background-color: #002341;
+  color: white;
+}
+
+.liked .like-button {
   text-decoration: none;
   background-color: #002341;
   color: white;

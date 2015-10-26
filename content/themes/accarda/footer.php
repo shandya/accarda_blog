@@ -57,8 +57,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/jquery-1.11.3.min.js"><\/script>')</script>
     <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/bootstrap.min.js"></script>
-    <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/post-like.min.js"></script>
-    <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/site.min.js"></script>
     <?php wp_footer(); ?>
   </body>
 </html>

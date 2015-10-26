@@ -44,7 +44,7 @@
 
       <footer class="post-footer">
         <div class="like-wrapper">
-          <?php echo getPostLikeLink( get_the_ID() ); ?>
+          <?php echo getPostLikeLink(get_the_ID());?>
         </div>
       </footer>
     </div>

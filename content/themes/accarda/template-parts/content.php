@@ -41,7 +41,7 @@
 
 			<div class="entry-footer">
 				<div class="like-wrapper">
-
+          			<?php echo getPostLikeLink(get_the_ID());?>
 				</div>
 			</div>
 		</div>
