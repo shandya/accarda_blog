@@ -326,3 +326,94 @@ function getPostLikeLink( $post_id ) {
 
 	return $output;
 }
+
+
+
+
+/*
+ * Creating Redaktion Post Types
+ */
+
+function redaktion_custom_post_type() {
+  $labels = array(
+    'name'               => _x( 'Redaktions', 'post type general name' ),
+    'singular_name'      => _x( 'Redaktion', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'redaktion' ),
+    'add_new_item'       => __( 'Add New Redaktion' ),
+    'edit_item'          => __( 'Edit Redaktion' ),
+    'new_item'           => __( 'New Redaktion' ),
+    'all_items'          => __( 'All Redaktions' ),
+    'view_item'          => __( 'View Redaktion' ),
+    'search_items'       => __( 'Search Redaktions' ),
+    'not_found'          => __( 'No redaktions found' ),
+    'not_found_in_trash' => __( 'No redaktions found in the Trash' ), 
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Redaktions'
+  );
+  $args = array(
+    'labels'        => $labels,
+    'description'   => 'Holds our redaktions and product specific data',
+    'public'        => true,
+    'menu_position' => 6,
+    'menu_icon'     => 'dashicons-admin-users',
+    'supports'      => array( 'title', 'editor', 'thumbnail' ),
+    'has_archive'   => true,
+		'capabilities' => array(
+		    'edit_post'          => 'update_core',
+		    'read_post'          => 'update_core',
+		    'delete_post'        => 'update_core',
+		    'edit_posts'         => 'update_core',
+		    'edit_others_posts'  => 'update_core',
+		    'delete_posts'       => 'update_core',
+		    'publish_posts'      => 'update_core',
+		    'read_private_posts' => 'update_core'
+		),
+  );
+  register_post_type( 'redaktion', $args ); 
+}
+add_action( 'init', 'redaktion_custom_post_type' );
+
+
+
+/*
+ * Creating Admin Post Post Types
+ */
+
+function admin_post_custom_post_type() {
+  $labels = array(
+    'name'               => _x( 'Admin Posts', 'post type general name' ),
+    'singular_name'      => _x( 'Admin Post', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'admin post' ),
+    'add_new_item'       => __( 'Add New Admin Post' ),
+    'edit_item'          => __( 'Edit Admin Post' ),
+    'new_item'           => __( 'New Admin Post' ),
+    'all_items'          => __( 'All Admin Posts' ),
+    'view_item'          => __( 'View Admin Post' ),
+    'search_items'       => __( 'Search Admin Posts' ),
+    'not_found'          => __( 'No admin posts found' ),
+    'not_found_in_trash' => __( 'No admin posts found in the Trash' ), 
+    'parent_item_colon'  => '',
+    'menu_name'          => 'Admin Posts'
+  );
+  $args = array(
+    'labels'        => $labels,
+    'description'   => 'Holds our admin posts and product specific data',
+    'public'        => true,
+    'menu_position' => 4,
+    'menu_icon'     => 'dashicons-admin-post',
+    'supports'      => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions' ),
+    'has_archive'   => true,
+		'capabilities' => array(
+		    'edit_post'          => 'update_core',
+		    'read_post'          => 'update_core',
+		    'delete_post'        => 'update_core',
+		    'edit_posts'         => 'update_core',
+		    'edit_others_posts'  => 'update_core',
+		    'delete_posts'       => 'update_core',
+		    'publish_posts'      => 'update_core',
+		    'read_private_posts' => 'update_core'
+		),
+  );
+  register_post_type( 'admin_post', $args ); 
+}
+add_action( 'init', 'admin_post_custom_post_type' );

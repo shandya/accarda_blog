@@ -61,18 +61,6 @@ function accarda_setup() {
     'caption',
   ) );
 
-  /*
-   * Enable support for Post Formats.
-   * See https://developer.wordpress.org/themes/functionality/post-formats/
-   */
-  add_theme_support( 'post-formats', array(
-    'aside',
-    'image',
-    'video',
-    'quote',
-    'link',
-  ) );
-
   // Set up the WordPress core custom background feature.
   add_theme_support( 'custom-background', apply_filters( 'accarda_custom_background_args', array(
     'default-color' => 'ffffff',
@@ -166,37 +154,6 @@ add_filter( 'the_content_more_link', 'modify_read_more_link' );
 function modify_read_more_link() {
 return '<a href="' . get_permalink() . '" class="read-more-link">Jetzt Lesen <span class="icon-ico-chevron"></span></a>';
 }
-
-//Creating Custom Post Types
-
-function redaktion_custom_post_type() {
-  $labels = array(
-    'name'               => _x( 'Redaktions', 'post type general name' ),
-    'singular_name'      => _x( 'Redaktion', 'post type singular name' ),
-    'add_new'            => _x( 'Add New', 'redaktion' ),
-    'add_new_item'       => __( 'Add New Redaktion' ),
-    'edit_item'          => __( 'Edit Redaktion' ),
-    'new_item'           => __( 'New Redaktion' ),
-    'all_items'          => __( 'All Redaktions' ),
-    'view_item'          => __( 'View Redaktion' ),
-    'search_items'       => __( 'Search Redaktions' ),
-    'not_found'          => __( 'No redaktions found' ),
-    'not_found_in_trash' => __( 'No redaktions found in the Trash' ), 
-    'parent_item_colon'  => '',
-    'menu_name'          => 'Redaktions'
-  );
-  $args = array(
-    'labels'        => $labels,
-    'description'   => 'Holds our redaktions and product specific data',
-    'public'        => true,
-    'menu_position' => 5,
-    'menu_icon'     => 'dashicons-admin-users',
-    'supports'      => array( 'title', 'editor', 'thumbnail' ),
-    'has_archive'   => true,
-  );
-  register_post_type( 'redaktion', $args ); 
-}
-add_action( 'init', 'redaktion_custom_post_type' );
 
 
 // Register Custom Navigation Walker
