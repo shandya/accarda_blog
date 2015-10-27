@@ -7775,7 +7775,7 @@ a .icon-ico-chevron {
   padding-top: 3rem;
 }
 
-.comment-wrapper-title {
+.comment-wrapper #comments {
   padding-bottom: 0.5em;
   border-bottom: 1px solid #002341;
   color: #002341;
@@ -7785,15 +7785,15 @@ a .icon-ico-chevron {
   text-transform: uppercase;
 }
 
-.comment-list {
+.commentlist {
   list-style: none;
   padding-left: 0;
 }
-.comment-list .children {
+.commentlist .children {
   list-style: none;
 }
 
-.comment {
+.comment-body {
   padding: 10px 0;
   padding: 1rem 0;
   margin-bottom: 20px;
@@ -7805,7 +7805,8 @@ a .icon-ico-chevron {
   color: #002341;
 }
 
-.comment-title {
+.comment-author {
+  color: #002341;
   margin-bottom: 2px;
   margin-bottom: 0.2rem;
   font-size: 14px;
@@ -7813,7 +7814,7 @@ a .icon-ico-chevron {
   font-weight: 700;
 }
 
-.comment-meta-info {
+.comment-metadata {
   font-style: italic;
   font-size: 0.9em;
 }
@@ -7825,13 +7826,17 @@ a .icon-ico-chevron {
   line-height: 1.8;
 }
 
-.reply-link {
+.comment-reply-link {
   color: #0080c9;
   font-size: 0.8em;
   text-transform: uppercase;
 }
 
-.comment-respond .comment-respond-title {
+#respond {
+  padding-top: 20px;
+  padding-top: 2rem;
+}
+#respond h3 {
   padding-bottom: 0.5em;
   border-bottom: 1px solid #002341;
   color: #002341;
@@ -7839,9 +7844,9 @@ a .icon-ico-chevron {
   font-size: 1.6rem;
   font-weight: 700;
 }
-.comment-respond .comment-form-input input[type="text"],
-.comment-respond .comment-form-input input[type="email"],
-.comment-respond .comment-form-input textarea {
+#respond #commentform input[type="text"],
+#respond #commentform input[type="email"],
+#respond #commentform textarea {
   width: 100%;
   margin: 10px 0px;
   margin: 1rem 0px;
@@ -7852,17 +7857,30 @@ a .icon-ico-chevron {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) inset;
   transition: 0.1s all ease-in-out;
 }
-.comment-respond .comment-form-input input[type="text"]:focus,
-.comment-respond .comment-form-input input[type="email"]:focus,
-.comment-respond .comment-form-input textarea:focus {
+#respond #commentform input[type="text"]:focus,
+#respond #commentform input[type="email"]:focus,
+#respond #commentform textarea:focus {
   border: 1px solid #cccccc;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.15) inset;
 }
-.comment-respond .form-submit {
-  display: block;
-  text-align: right;
-  margin: 20px 0px;
-  margin: 2rem 0px;
+#respond #submit {
+  position: relative;
+  float: right;
+  color: #0080c9;
+  background: none;
+  border: none;
+  font-size: 0.8em;
+  text-transform: uppercase;
+}
+#respond #submit:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 8px;
+  height: 15px;
+  background: url("../images/decoration-like-btn.png");
+  background-size: 100% 100%;
 }
 
 .page-footer {
@@ -7976,8 +7994,10 @@ a .icon-ico-chevron {
 }
 
 .post {
-  padding-bottom: 40px;
-  padding-bottom: 4rem;
+  padding-bottom: 20px;
+  padding-bottom: 2rem;
+  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .post-featured-image-wrapper {
@@ -8006,8 +8026,8 @@ a .icon-ico-chevron {
   border-bottom: 1px solid #002341;
 }
 .post-body .post-content {
-  margin-top: 40px;
-  margin-top: 4rem;
+  margin: 20px 0 40px;
+  margin: 2rem 0 4rem;
   line-height: 1.8;
 }
 .post-body .post-attachment-wrapper {
@@ -8019,6 +8039,7 @@ a .icon-ico-chevron {
   border-bottom: 1px solid #002341;
 }
 .post-body .post-attachment-wrapper .media-heading {
+  display: inline-block;
   margin: 0 0 0 10px;
   margin: 0 0 0 1rem;
   font-size: 14px;
@@ -8030,6 +8051,32 @@ a .icon-ico-chevron {
   color: #30b4ff;
   transition: 0.1s all ease-in-out;
   text-decoration: none;
+}
+.post-body .post-attachment-wrapper .dashicons {
+  font-size: 30px;
+  font-size: 3rem;
+  width: 30px;
+  width: 3rem;
+  height: 30px;
+  height: 3rem;
+  color: #002341;
+}
+
+.post-meta-info {
+  padding-bottom: 0.5em;
+}
+.post-meta-info a {
+  color: #0080c9;
+  transition: 0.2s all ease-in-out;
+}
+.post-meta-info a:hover {
+  color: #30b4ff;
+  transition: 0.1s all ease-in-out;
+  text-decoration: none;
+}
+.post-meta-info a:active, .post-meta-info a:focus {
+  color: #003f63;
+  transition: 0.1s all ease-in-out;
 }
 
 #sidebar > ul {

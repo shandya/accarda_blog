@@ -1,5 +1,6 @@
 .post {
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .post-featured-image-wrapper {
@@ -27,7 +28,7 @@
   }
 
   .post-content {
-    margin-top: 4rem;
+    margin: 2rem 0 4rem;
     line-height: 1.8;
   }
 
@@ -38,6 +39,7 @@
     border-bottom: 1px solid $base-font-color;
 
     .media-heading {
+      display: inline-block;
       margin: 0 0 0 1rem;
       font-size: 1.4rem;
       color: $accent-color;
@@ -48,6 +50,34 @@
         color: lighten($accent-color, 20%);
         transition: 0.1s all ease-in-out;
         text-decoration: none;
-      }
+    }
+
+    .dashicons {
+      font-size: 3rem;
+      width: 3rem;
+      height: 3rem;
+      color: $base-font-color;
+    }
+  }
+}
+
+.post-meta-info {
+  padding-bottom: 0.5em;
+
+  a {
+    color: $accent-color;
+    transition: 0.2s all ease-in-out;
+
+    &:hover {
+      color: lighten($accent-color, 20%);
+      transition: 0.1s all ease-in-out;
+      text-decoration: none;
+    }
+
+    &:active,
+    &:focus {
+      color: darken($accent-color, 20%);
+      transition: 0.1s all ease-in-out;
+    }
   }
 }

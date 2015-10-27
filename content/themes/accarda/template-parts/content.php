@@ -11,24 +11,24 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
 	<div class="row">
+
+		<?php
+			if ( has_post_thumbnail() ) :  ?>
+
 		<div class="col-md-5">
 			<div class="entry-thumbnail">
-
-				<?php
-					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'entry-thumbnail' );
-					}
-					else {
-						echo '<img src="http://lorempixel.com/460/345" alt="">';
-					}
-				?>
+				<?php the_post_thumbnail( 'entry-thumbnail' ); ?>
 			</div>
 		</div>
 	<div class="col-md-7 entry-body">
+		<?php else : ?>
+			<div class="col-md-12 entry-body">
+		<?php endif; ?>
+
 		<header class="entry-header">
-			<div class="entry-meta-info">
-				<a href="" class="category-link">lorem ipsum</a>
-			</div>
+	        <div class="post-meta-info">
+	          <?php echo get_the_category_list( ', ')?>
+	        </div>
 			
 			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" class="entry-title-link" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 

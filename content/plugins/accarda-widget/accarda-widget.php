@@ -417,3 +417,17 @@ function admin_post_custom_post_type() {
   register_post_type( 'admin_post', $args ); 
 }
 add_action( 'init', 'admin_post_custom_post_type' );
+
+/*
+ * Restrict Author from accesing other author's media file
+ */
+
+add_filter( 'ajax_query_attachments_args', 'show_current_user_attachments' );
+
+function show_current_user_attachments( $query ) {
+    $user_id = get_current_user_id();
+    if ( $user_id ) {
+        $query['author'] = $user_id;
+    }
+    return $query;
+}

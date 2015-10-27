@@ -26,7 +26,7 @@
     <div class="col-xs-12 post-body">
       <header class="post-header">
         <div class="post-meta-info">
-          <a href="" class="category-link">lorem ipsum</a>
+          <?php echo get_the_category_list( ', ')?>
         </div>
 
         <?php the_title( '<h1 class="post-title">', '</h1>' ); ?>
@@ -47,6 +47,45 @@
           <?php echo getPostLikeLink(get_the_ID());?>
         </div>
       </footer>
+
+      <?php 
+
+        $file = get_field('befestigung');
+
+        if( $file ):
+
+          $url = $file['url'];
+          $title = $file['title'];
+          $mime = $file['mime_type'];
+
+          if (preg_match('/image/', $mime)) {
+            $icon = 'dashicons-format-image';
+          } elseif (preg_match('/video/', $mime)) {
+            $icon = 'dashicons-media-video';
+          } elseif (preg_match('/audio/', $mime)) {
+            $icon = 'dashicons-media-audio';
+          } else {
+            $icon = 'dashicons-media-text';
+          }
+
+          ?> 
+
+          <div class="post-attachment-wrapper">
+            <div class="media">
+              <div class="media-left media-middle">
+                <span class="dashicons <?php echo $icon; ?> media-object"></span>
+              </div>
+              <div class="media-body media-middle">
+                <a href="<?php echo $url; ?>" title="<?php echo $title; ?>" target="_BLANK"><h4 class="media-heading"><?php echo $title; ?></h4></a>
+              </div>
+            </div>
+          </div>
+      <?php endif; ?>
+
+    
+
+
+
     </div>
   </div>
 </article>
@@ -70,3 +109,7 @@
     </div>
   <?php endif; ?>
 </div>
+
+<section class="comment-wrapper">
+  <?php comments_template(); ?> 
+</section>

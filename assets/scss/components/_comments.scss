@@ -3,7 +3,7 @@
   padding-top: 3rem;
 }
 
-.comment-wrapper-title {
+.comment-wrapper #comments, {
   padding-bottom: 0.5em;
   border-bottom: 1px solid $base-font-color;
   color: $base-font-color;
@@ -12,7 +12,7 @@
   text-transform: uppercase;
 }
 
-.comment-list {
+.commentlist {
   list-style: none;
   padding-left: 0;
 
@@ -21,7 +21,7 @@
   }
 }
 
-.comment {
+.comment-body {
   padding: 1rem 0;
   margin-bottom: 2rem;
   border-bottom: 1px solid $paper-grey;
@@ -31,13 +31,14 @@
   color: $base-font-color;
 }
 
-.comment-title {
+.comment-author {
+  color: $base-font-color;
   margin-bottom: 0.2rem;
   font-size: 1.4rem;
   font-weight: 700;
 }
 
-.comment-meta-info {
+.comment-metadata {
   font-style: italic;
   font-size: 0.9em;
 }
@@ -48,14 +49,16 @@
   line-height: 1.8;
 }
 
-.reply-link {
+.comment-reply-link {
   color: $accent-color;
   font-size: 0.8em;
   text-transform: uppercase;
 }
 
-.comment-respond {
-  .comment-respond-title {
+#respond {
+  padding-top: 2rem;
+
+  h3 {
     padding-bottom: 0.5em;
     border-bottom: 1px solid $base-font-color;
     color: $base-font-color;
@@ -63,7 +66,7 @@
     font-weight: 700;
   }
 
-  .comment-form-input {
+  #commentform {
     input[type="text"],
     input[type="email"],
     textarea {
@@ -82,10 +85,25 @@
     }
   }
 
-  .form-submit {
-    display: block;
-    text-align: right;
-    margin: 2rem 0px;
+  #submit {
+    position: relative;
+    float: right;
+    color: $accent-color;
+    background: none;
+    border: none;
+    font-size: 0.8em;
+    text-transform: uppercase;
+  }
+
+  #submit::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 8px;
+    height: 15px;
+    background: url("../images/decoration-like-btn.png");
+    background-size: 100% 100%;
   }
 }
 
