@@ -12,7 +12,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="entry-thumbnail">
-      <?php the_post_thumbnail( 'entry-thumbnail' ); ?>
+      <?php the_post_thumbnail( 'entry-spotlight-image' ); ?>
     </div>
   </div>
   <div class="col-sm-5 col-md-4 col-lg-3 entry-body">
@@ -26,6 +26,7 @@
     <div class="entry-content">
       <?php the_content(); ?>
     </div>
+
   </div>
 </div>
 

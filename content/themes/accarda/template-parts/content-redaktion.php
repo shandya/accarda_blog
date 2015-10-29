@@ -15,7 +15,7 @@
       <div class="record-thumbnail record-thumbnail-small">
         <?php
           if ( has_post_thumbnail() ) {
-            the_post_thumbnail( 'record-featured-image' );
+            the_post_thumbnail( 'record-featured-image-small' );
           }
         ?>
       </div>

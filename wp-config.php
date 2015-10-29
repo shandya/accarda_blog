@@ -58,8 +58,8 @@ define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/interner_blog/co
 //develop mode url. 
 //define( 'WP_CONTENT_URL', 'http://localhost:8080/interner_blog/content' );
 
-//define('WP_HOME','http://localhost:8080/interner_blog');
-//define('WP_SITEURL','http://localhost:8080/interner_blog/wordpress');
+define('WP_HOME','http://localhost/interner_blog');
+define('WP_SITEURL','http://localhost/interner_blog/wordpress');
 
 /**#@+
  * Authentication Unique Keys and Salts.

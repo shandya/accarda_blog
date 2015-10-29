@@ -98,3 +98,131 @@
 		}
 	}
 }
+
+
+
+
+.entry-content,
+.post-content {
+	h1, h2, h3, h4, h5, h6 {
+		color: $accent-color;
+	}
+
+	p, li {
+		color: $base-font-color;
+		line-height: 1.5;
+	}
+
+	a {
+		color: $accent-color;
+		transition: 0.2s all ease-in-out;
+
+		&:hover {
+			color: lighten($accent-color, 10%);
+			transition: 0.1s all ease-in-out;
+		}
+		&:active,
+		&:focus {
+			color: darken($accent-color, 10%);
+			transition: 0.1s all ease-in-out;
+		}
+	}
+}
+
+.entry-content {
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 1.8rem;
+	}
+	h3 {
+		font-size: 1.6rem;
+	}
+	h4 {
+		font-size: 1.45rem;
+	}
+	h5 {
+		font-size: 1.32rem;
+	}
+	h6 {
+		font-size: 1.2rem;
+	}
+
+	blockquote {
+		font-size: 1.5rem;
+	}
+}
+
+.post-content {
+	h1 {
+		font-size: 3rem;
+	}
+
+	h2 {
+		font-size: 2.6rem;
+	}
+	h3 {
+		font-size: 2.2rem;
+	}
+	h4 {
+		font-size: 1.85rem;
+	}
+	h5 {
+		font-size: 1.55rem;
+	}
+	h6 {
+		font-size: 1.3rem;
+	}
+	blockquote {
+		font-size: 1.5rem;
+	}
+}
+
+
+img.alignright,
+figure.alignright {
+	float:right; 
+	margin:0 0 1.4em 1.4em;
+	text-align: right;
+}
+img.alignleft,
+figure.alignleft {
+	float:left; 
+	margin:0 1.4em 1.4em 0;
+}
+img.aligncenter,
+figure.aligncenter {
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto;
+    text-align: center;
+}
+a img.alignright,
+a figure.alignright {
+	float:right; 
+	margin:0 0 1.4em 1.4em;
+	text-align: right;
+}
+a img.alignleft,
+a figure {
+	float:left; 
+	margin:0 1.4em 1.4em 0;
+}
+a img.aligncenter,
+a figure.aligncenter {
+	display: block; 
+	margin-left: auto; 
+	margin-right: auto;
+    text-align: center;
+}
+
+figure figcaption {
+	color: $accent-color;
+	font-style: italic;
+}
+
+mark {
+    background: lighten($accent-color, 50%);
+    color: $base-font-color;
+    }

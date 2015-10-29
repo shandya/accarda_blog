@@ -41,7 +41,9 @@ function accarda_setup() {
    * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
    */
   add_theme_support( 'post-thumbnails' );
+   add_image_size( 'entry-spotlight-image', 1200, 800, false );
   add_image_size( 'entry-thumbnail', 460, 345, true );
+   add_image_size( 'record-featured-image-small', 200, 200, true );
   add_image_size( 'record-featured-image', 400, 400, true );
 
   // This theme uses wp_nav_menu() in one location.
@@ -89,9 +91,9 @@ add_action( 'after_setup_theme', 'accarda_content_width', 0 );
  */
 function accarda_widgets_init() {
   register_sidebar( array(
-    'name'          => esc_html__( 'Sidebar', 'accarda' ),
+    'name'          => esc_html__( 'Sidebar Widget Area', 'accarda' ),
     'id'            => 'sidebar-1',
-    'description'   => '',
+    'description'   => __( 'Widget Area to be displayed on Index Page and Single Page', 'accarda' ),
     'before_widget' => '<aside id="%1$s" class="widget %2$s">',
     'after_widget'  => '</aside>',
     'before_title'  => '<h2 class="widget-title">',
@@ -99,9 +101,6 @@ function accarda_widgets_init() {
   ) );
 }
 add_action( 'widgets_init', 'accarda_widgets_init' );
-
-
-
 
 /**
  * Register footer widget area.
@@ -112,38 +111,29 @@ function footer_widgets_init() {
  
     // First footer widget area, located in the footer. Empty by default.
     register_sidebar( array(
-        'name' => __( 'First Footer Widget Area', 'accarda' ),
-        'id' => 'footer-widget-1',
-        'description' => __( 'The first footer widget area', 'accarda' ),
-        'before_widget' => '<aside id="%1$s" class="widget widget-footer %2$s">',
+        'name' => __( 'Footer Widget Area', 'accarda' ),
+        'id' => 'sidebar-footer',
+        'description' => __( 'Widget Area to be displayed on Mitmachen page', 'accarda' ),
+        'before_widget' => '<aside class="widget widget-footer %2$s record" id="%1$s">',
         'after_widget'  => '</aside>',
-        'before_title'  => '<h2 class="widget-title">',
+        'before_title'  => '<h2 class="widget-title record-title">',
         'after_title'   => '</h2>',
-    ) );
- 
-    // Second Footer Widget Area, located in the footer. Empty by default.
-    register_sidebar( array(
-        'name' => __( 'Second Footer Widget Area', 'accarda' ),
-        'id' => 'footer-widget-2',
-        'description' => __( 'The second footer widget area', 'accarda' ),
-        'before_widget' => '<aside id="%1$s" class="widget widget-footer %2$s">',
-        'after_widget'  => '</aside>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ) );
- 
-    // Third Footer Widget Area, located in the footer. Empty by default.
-    register_sidebar( array(
-        'name' => __( 'Third Footer Widget Area', 'accarda' ),
-        'id' => 'footer-widget-3',
-        'description' => __( 'The third footer widget area', 'accarda' ),
-        'before_widget' => '<aside id="%1$s" class="widget widget-footer %2$s">',
-        'after_widget'  => '</aside>',
-        'before_title'  => '<h2 class="widget-title">',
-        'after_title'   => '</h2>',
-    ) );        
+    ) );    
 }
 add_action( 'widgets_init', 'footer_widgets_init' );
+
+// Dynamically add Bootstrap column classes to footer widgets, depending on how many widgets are present
+add_filter('dynamic_sidebar_params','tibs_footer_sidebar_params'); 
+function tibs_footer_sidebar_params($params) {
+    $sidebar_id = $params[0]['id'];
+    if ( $sidebar_id == 'sidebar-footer' ) {
+        $total_widgets = wp_get_sidebars_widgets();
+        $sidebar_widgets = count($total_widgets[$sidebar_id]);
+        $params[0]['before_widget'] = str_replace('<aside class="widget ', '<aside class="widget hello col-sm-' . floor(12 / $sidebar_widgets) . ' ', $params[0]['before_widget']);
+    }
+    return $params;
+}
+
 
 /**
  * Enqueue scripts and styles.
@@ -205,7 +195,7 @@ return '<a href="' . get_permalink() . '" class="read-more-link">Jetzt Lesen <sp
 require_once('wp_bootstrap_navwalker.php');
 
 register_nav_menus( array(
-    'primary' => __( 'Primary Menu', 'accarda' ),
+    'primary' => __( 'Header Menu', 'accarda' ),
 ) );
 
 register_nav_menus( array(

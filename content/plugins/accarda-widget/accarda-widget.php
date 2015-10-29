@@ -1,9 +1,9 @@
 <?php 
 /*
-Plugin Name: Accarda Widget
+Plugin Name: Accarda Theme Supporting Functions
 Version: 1.0
 Plugin URI: 
-Description: The descripion of your plugin.
+Description: This plugin initiate Accarda Widget Post, the Like button system, the custom posts and restrict author form accesing other author's media files.
 Author: Shandy Ardiansyah
 Author URI: http://shandya.com
 */
@@ -19,25 +19,23 @@ class accarda_widget extends WP_Widget{
 	public function __construct()	{
 		$widget_details = array(
 			'classname' => 'my_widget',
-			'description' => 'My plugin description'
+			'description' => 'Add a custom post to your sidebar.'
 		);
  
-		parent::__construct( 'my_widget', 'My Widget', $widget_details );
+		parent::__construct( 'my_widget', 'Accarda Widget Post', $widget_details );
  
     add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
 	}
 
-  /**
-   * Upload the Javascripts for the media uploader
-   */
-  public function upload_scripts()
-  {
+  	/**
+   	* Upload the Javascripts for the media uploader
+   	*/
+  	public function upload_scripts() {
       wp_enqueue_script('media-upload');
       wp_enqueue_script('thickbox');
       wp_enqueue_script('upload_media_widget', plugin_dir_url(__FILE__) . 'upload-media.js', array('jquery'));
-
       wp_enqueue_style('thickbox');
-  }
+  	}
  
 	public function form( $instance ) {
     $title = '';
@@ -69,6 +67,9 @@ class accarda_widget extends WP_Widget{
 
     <p>
         <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:' ); ?></label>
+        <?php if( null != esc_url( $image )) : ?>
+			<img src="<?php echo esc_url( $image ); ?>" alt="<?php echo esc_url( $image ); ?>" style="width: 100%; height: auto;">
+        <?php endif; ?>
         <input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
         <input class="upload_image_button button button-primary" type="button" value="Upload Image" style="margin-top: 1em;"/>
     </p>
@@ -88,14 +89,12 @@ class accarda_widget extends WP_Widget{
     </div>
  
     <?php
- 
-    echo $args['after_widget'];
 	}
  
 	public function update( $new_instance, $old_instance ) {  
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-    $instance['image'] = ( ! empty( $new_instance['image'] ) ) ? strip_tags( $new_instance['image'] ) : '';
+    	$instance['image'] = ( ! empty( $new_instance['image'] ) ) ? strip_tags( $new_instance['image'] ) : '';
 		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? strip_tags( $new_instance['text'] ) : '';
 		$instance['hyperlink'] = ( ! empty( $new_instance['hyperlink'] ) ) ? strip_tags( $new_instance['hyperlink'] ) : '';
 		return $instance;
@@ -126,17 +125,17 @@ class accarda_widget extends WP_Widget{
 					</div>
 
 					<div class="col-xs-12 entry-body">
-						<header class="entry-header">
+						<header class="entry-header widget-header">
 								<?php 
 									if ( ! empty( $title ) )
 									echo $args['before_title'] . $title . $args['after_title'];
 								?>
 						</header>
 
-						<div class="entry-content">
+						<div class="entry-content widget-content">
               <?php 
                 if ( ! empty( $text ) )
-							    echo $text; 
+					echo apply_filters( 'the_content', $text ); 
                 ?>
 
               <?php 
@@ -429,6 +428,7 @@ function admin_post_custom_post_type() {
     'description'   => 'Holds our admin posts and product specific data',
     'public'        => true,
     'menu_position' => 4,
+   	'taxonomies' 	=> array('category'),  
     'menu_icon'     => 'dashicons-admin-post',
     'supports'      => array( 'title', 'editor', 'thumbnail', 'comments', 'revisions' ),
     'has_archive'   => true,

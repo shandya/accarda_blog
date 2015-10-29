@@ -10,17 +10,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="post-featured-image-wrapper">
-				<?php
-					if ( has_post_thumbnail() ) {
-						the_post_thumbnail( 'large', array('class' => 'post-featured-image'));
-					}
-				?>
+
+  <?php if ( has_post_thumbnail() ) : ?>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="post-featured-image-wrapper">
+  				<?php	the_post_thumbnail( 'large', array('class' => 'post-featured-image')); ?>
+        </div>
       </div>
     </div>
-  </div>
+  <?php endif; ?>
 
   <div class="row">
     <div class="col-xs-12 post-body">

@@ -7659,6 +7659,134 @@ a .icon-ico-chevron {
   }
 }
 
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6,
+.post-content h1,
+.post-content h2,
+.post-content h3,
+.post-content h4,
+.post-content h5,
+.post-content h6 {
+  color: #0080c9;
+}
+.entry-content p, .entry-content li,
+.post-content p,
+.post-content li {
+  color: #002341;
+  line-height: 1.5;
+}
+.entry-content a,
+.post-content a {
+  color: #0080c9;
+  transition: 0.2s all ease-in-out;
+}
+.entry-content a:hover,
+.post-content a:hover {
+  color: #00a0fc;
+  transition: 0.1s all ease-in-out;
+}
+.entry-content a:active, .entry-content a:focus,
+.post-content a:active,
+.post-content a:focus {
+  color: #006096;
+  transition: 0.1s all ease-in-out;
+}
+
+.entry-content h1 {
+  font-size: 2rem;
+}
+.entry-content h2 {
+  font-size: 1.8rem;
+}
+.entry-content h3 {
+  font-size: 1.6rem;
+}
+.entry-content h4 {
+  font-size: 1.45rem;
+}
+.entry-content h5 {
+  font-size: 1.32rem;
+}
+.entry-content h6 {
+  font-size: 1.2rem;
+}
+.entry-content blockquote {
+  font-size: 1.5rem;
+}
+
+.post-content h1 {
+  font-size: 3rem;
+}
+.post-content h2 {
+  font-size: 2.6rem;
+}
+.post-content h3 {
+  font-size: 2.2rem;
+}
+.post-content h4 {
+  font-size: 1.85rem;
+}
+.post-content h5 {
+  font-size: 1.55rem;
+}
+.post-content h6 {
+  font-size: 1.3rem;
+}
+.post-content blockquote {
+  font-size: 1.5rem;
+}
+
+img.alignright,
+figure.alignright {
+  float: right;
+  margin: 0 0 1.4em 1.4em;
+  text-align: right;
+}
+
+img.alignleft,
+figure.alignleft {
+  float: left;
+  margin: 0 1.4em 1.4em 0;
+}
+
+img.aligncenter,
+figure.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+a img.alignright,
+a figure.alignright {
+  float: right;
+  margin: 0 0 1.4em 1.4em;
+  text-align: right;
+}
+
+a img.alignleft,
+a figure {
+  float: left;
+  margin: 0 1.4em 1.4em 0;
+}
+
+a img.aligncenter,
+a figure.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+figure figcaption {
+  color: #0080c9;
+  font-style: italic;
+}
+
+mark {
+  background: #c9ebff;
+  color: #002341;
+}
+
 .record {
   position: relative;
   margin-bottom: 5rem;
@@ -8006,15 +8134,13 @@ a .icon-ico-chevron {
 
 .post-featured-image-wrapper {
   display: block;
+  margin-bottom: 4rem;
 }
 .post-featured-image-wrapper .post-featured-image {
   width: 100%;
   height: auto;
 }
 
-.post-body .post-header {
-  margin-top: 4rem;
-}
 .post-body .post-title {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
@@ -8143,6 +8269,43 @@ a .icon-ico-chevron {
   height: auto;
 }
 
+.widget.record {
+  border-bottom: none;
+}
+.widget.record .widget-thumbnail {
+  position: relative;
+  margin: 10rem auto 4rem;
+  width: 16rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.widget.record .widget-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+.widget.record .widget-title {
+  margin: 1rem 0 1.2rem;
+  color: #002341;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 1.2em;
+}
+.widget.record .widget-content {
+  line-height: 1.8em;
+}
+@media (min-width: 768px) {
+  .widget.record .widget-content {
+    width: 83.33333%;
+    margin-left: 8.33333%;
+  }
+}
+
+.widget.record + .widget.record::before {
+  display: none;
+}
+
 .archive-title {
   margin-top: 0;
   margin-bottom: 3rem;
@@ -8172,6 +8335,7 @@ a .icon-ico-chevron {
 
 .record-footer-wrapper .section-header {
   margin-top: 0;
+  color: #002341;
   font-size: 2.2rem;
   font-weight: bold;
   text-transform: uppercase;

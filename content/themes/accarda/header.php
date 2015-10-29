@@ -37,6 +37,8 @@
 		<meta name="twitter:description" content="<?php bloginfo( 'description' ); ?>" />
 		<meta name="twitter:image" content="" />
 
+    <link rel="shortcut icon" href="<?php echo esc_url( home_url() ); ?> /assets/images/favicon.ico" />
+
     <title><?php bloginfo( 'name' ); ?></title>
     <link rel="stylesheet" href="<?php echo esc_url( home_url() ); ?> /assets/stylesheets/site.prefixed.css">
   </head>
