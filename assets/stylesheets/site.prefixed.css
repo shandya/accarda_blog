@@ -8005,6 +8005,7 @@ a .icon-ico-chevron {
 }
 .post-featured-image-wrapper .post-featured-image {
   width: 100%;
+  height: auto;
 }
 
 .post-body .post-header {
@@ -8092,6 +8093,13 @@ a .icon-ico-chevron {
   line-height: 1.2em;
 }
 
+.widget {
+  border-bottom: 1px solid #002341;
+  margin-bottom: 1em;
+}
+.widget:last-of-type {
+  border-bottom: none;
+}
 .widget ul {
   padding-left: 0;
   list-style: none;
@@ -8135,6 +8143,15 @@ a .icon-ico-chevron {
 }
 .widget li a:active, .widget li a:focus {
   color: #003f63;
+}
+.widget .entry {
+  margin-bottom: 0;
+}
+
+.widget-thumbnail img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
 }
 
 .archive-title {

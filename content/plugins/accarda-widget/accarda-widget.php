@@ -24,12 +24,30 @@ class accarda_widget extends WP_Widget{
  
 		parent::__construct( 'my_widget', 'My Widget', $widget_details );
  
+    add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
 	}
+
+  /**
+   * Upload the Javascripts for the media uploader
+   */
+  public function upload_scripts()
+  {
+      wp_enqueue_script('media-upload');
+      wp_enqueue_script('thickbox');
+      wp_enqueue_script('upload_media_widget', plugin_dir_url(__FILE__) . 'upload-media.js', array('jquery'));
+
+      wp_enqueue_style('thickbox');
+  }
  
 	public function form( $instance ) {
     $title = '';
     if( !empty( $instance['title'] ) ) {
         $title = $instance['title'];
+    }
+
+    $image = '';
+    if( !empty($instance['image'])) {
+        $image = $instance['image'];
     }
  
     $text = '';
@@ -47,6 +65,12 @@ class accarda_widget extends WP_Widget{
     <p>
         <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
         <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+    </p>
+
+    <p>
+        <label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:' ); ?></label>
+        <input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
+        <input class="upload_image_button button button-primary" type="button" value="Upload Image" style="margin-top: 1em;"/>
     </p>
  
     <p>
@@ -71,6 +95,7 @@ class accarda_widget extends WP_Widget{
 	public function update( $new_instance, $old_instance ) {  
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+    $instance['image'] = ( ! empty( $new_instance['image'] ) ) ? strip_tags( $new_instance['image'] ) : '';
 		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? strip_tags( $new_instance['text'] ) : '';
 		$instance['hyperlink'] = ( ! empty( $new_instance['hyperlink'] ) ) ? strip_tags( $new_instance['hyperlink'] ) : '';
 		return $instance;
@@ -79,6 +104,7 @@ class accarda_widget extends WP_Widget{
 	public function widget( $args, $instance ) {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
+    $image = apply_filters( 'widget_image', $instance['image'] );
 		$text = apply_filters( 'widget_text', $instance['text'] );
 		$hyperlink = apply_filters( 'widget_hyperlink', $instance['hyperlink'] );
 
@@ -91,29 +117,32 @@ class accarda_widget extends WP_Widget{
 			<aside class="entry entry-sidebar">
 				<div class="row">
 					<div class="col-xs-12">
-						<div class="entry-thumbnail">
-							<img src="http://lorempixel.com/400/360" alt="">
+						<div class="widget-thumbnail">
+                <?php 
+                  if ( ! empty( $image ) )
+                  echo '<img src="' . $image . '" alt="' . $title . '">';
+                ?>
 						</div>
 					</div>
 
 					<div class="col-xs-12 entry-body">
 						<header class="entry-header">
-							<div class="entry-meta-info">
-								<a href="" class="category-link">lorem ipsum</a>
-							</div>
-							<h2 class="entry-title">
-								<a href="<?php echo $title; ?>" class="entry-title-link">
-									<?php 
-										if ( ! empty( $title ) )
-										echo $args['before_title'] . $title . $args['after_title'];
-									?>
-								</a>
-							</h2>
+								<?php 
+									if ( ! empty( $title ) )
+									echo $args['before_title'] . $title . $args['after_title'];
+								?>
 						</header>
 
 						<div class="entry-content">
-							<?php echo $text; ?>
-							<a href="<?php echo $hyperlink; ?>" class="read-more-link">Jetzt Lesen <span class="icon-ico-chevron"></span></a>
+              <?php 
+                if ( ! empty( $text ) )
+							    echo $text; 
+                ?>
+
+              <?php 
+                if ( ! empty( $hyperlink ) )
+                echo '<a href="' . $hyperlink . '" class="read-more-link">Jetzt Lesen <span class="icon-ico-chevron"></span></a>';
+              ?>
 						</div>
 					</div>
 				</div>
@@ -414,7 +443,7 @@ function admin_post_custom_post_type() {
 		    'read_private_posts' => 'update_core'
 		),
   );
-  register_post_type( 'admin_post', $args ); 
+  register_post_type( 'admin-post', $args ); 
 }
 add_action( 'init', 'admin_post_custom_post_type' );
 
@@ -431,3 +460,5 @@ function show_current_user_attachments( $query ) {
     }
     return $query;
 }
+
+

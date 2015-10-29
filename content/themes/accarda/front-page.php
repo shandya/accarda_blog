@@ -21,33 +21,24 @@ get_header(); ?>
     <div class="row">
       <div class="col-xs-12">
         <article class="entry entry-spotlight">
-          <a href="seite.html">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="entry-thumbnail">
-                  <img src="http://lorempixel.com/1200/800" alt="">
-                </div>
-              </div>
-              <div class="col-sm-5 col-md-4 col-lg-3 entry-body">
-                <header class="entry-header">
-                  <div class="entry-meta-info">
-                    <a href="" class="category-link">lorem ipsum</a>
-                  </div>
-                  <h2 class="entry-title">
-                    <a href="seite.html" class="entry-title-link">
-                      Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.
-                    </a>
-                  </h2>
-                </header>
 
-                <div class="entry-content">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti quaerat facere sunt qui dolor doloremque vel cupiditate repellat temporibus cumque nesciunt tenetur assumenda odit, itaque obcaecati tempora suscipit iste deserunt hic eveniet dolorem perferendis sapiente. Saepe cum veniam perferendis at blanditiis, nihil neque minus eaque consequuntur laboriosam earum tempore, a magnam, placeat dicta praesentium ea similique commodi ut.</p>
+        <?php 
 
-                  <a href="seite.html" class="read-more-link">Jetzt Lesen <span class="icon-ico-chevron"></span></a>
-                </div>
-              </div>
-            </div>
-          </a>
+          $latest_blog_posts = new WP_Query( array( 'posts_per_page' => 1, 'post_type' => 'admin_post' ) );
+
+          if ( $latest_blog_posts->have_posts() ) : 
+            while ( $latest_blog_posts->have_posts() ) : 
+
+              $latest_blog_posts->the_post();
+              /*
+               * Include the Post-Format-specific template for the content.
+               * If you want to override this in a child theme, then include a file
+               * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+               */
+              get_template_part( 'template-parts/content', 'admin-post-spotlight' );
+
+            endwhile; 
+          endif; ?>
         </article> 
       </div>
     </div>

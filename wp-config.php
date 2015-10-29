@@ -51,15 +51,15 @@ define('DB_COLLATE', '');
  */
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
 
-//define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
+define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/interner_blog/content' );
 
 //define( 'WP_PLUGIN_DIR', 'http://' .  $_SERVER['HTTP_HOST'] . '/content/plugins' );
 
 //develop mode url. 
-define( 'WP_CONTENT_URL', 'http://localhost/interner_blog/content' );
+//define( 'WP_CONTENT_URL', 'http://localhost:8080/interner_blog/content' );
 
-define('WP_HOME','http://localhost/interner_blog');
-define('WP_SITEURL','http://localhost/interner_blog/wordpress');
+//define('WP_HOME','http://localhost:8080/interner_blog');
+//define('WP_SITEURL','http://localhost:8080/interner_blog/wordpress');
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -101,7 +101,7 @@ $table_prefix  = 'wp_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 
 /* That's all, stop editing! Happy blogging. */
 

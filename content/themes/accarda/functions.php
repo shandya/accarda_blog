@@ -100,6 +100,51 @@ function accarda_widgets_init() {
 }
 add_action( 'widgets_init', 'accarda_widgets_init' );
 
+
+
+
+/**
+ * Register footer widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function footer_widgets_init() {
+ 
+    // First footer widget area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'First Footer Widget Area', 'accarda' ),
+        'id' => 'footer-widget-1',
+        'description' => __( 'The first footer widget area', 'accarda' ),
+        'before_widget' => '<aside id="%1$s" class="widget widget-footer %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+ 
+    // Second Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Second Footer Widget Area', 'accarda' ),
+        'id' => 'footer-widget-2',
+        'description' => __( 'The second footer widget area', 'accarda' ),
+        'before_widget' => '<aside id="%1$s" class="widget widget-footer %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+ 
+    // Third Footer Widget Area, located in the footer. Empty by default.
+    register_sidebar( array(
+        'name' => __( 'Third Footer Widget Area', 'accarda' ),
+        'id' => 'footer-widget-3',
+        'description' => __( 'The third footer widget area', 'accarda' ),
+        'before_widget' => '<aside id="%1$s" class="widget widget-footer %2$s">',
+        'after_widget'  => '</aside>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );        
+}
+add_action( 'widgets_init', 'footer_widgets_init' );
+
 /**
  * Enqueue scripts and styles.
  */
@@ -169,11 +214,11 @@ register_nav_menus( array(
 
 
 // Exclude page format from search result
-function mySearchFilter($query) {
+function filter_only_post($query) {
 if ($query->is_search) {
 $query->set('post_type', 'post');
 }
 return $query;
 }
 
-add_filter('pre_get_posts','mySearchFilter');
+add_filter('pre_get_posts','filter_only_post');
