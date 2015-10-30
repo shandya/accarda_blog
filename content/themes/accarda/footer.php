@@ -16,7 +16,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <img src="<?php echo esc_url( home_url() ); ?> /assets/images/holding-hands.svg" class="decoration-holding-hands">
+        <img src="<?php echo esc_url( home_url() ); ?>/assets/images/holding-hands.svg" class="decoration-holding-hands">
         <p class="motto">Together for our future</p>
       </div>
     </div>
@@ -25,9 +25,9 @@
       <div class="col-xs-12 col-sm-6 col-sm-push-6">
         <ul class="list-inline social-links">
           <li><div class="social-link-label">Folgt uns:</div></li>
-          <li><a href="" class="social-link"><span class="icon-linkedin2"></span></a></li>
-          <li><a href="" class="social-link"><span class="icon-ico-arrow"></span></a></li>
-          <li><a href="" class="social-link"><span class="icon-ico-a"></span></a></li>
+          <li><a href="#" class="social-link"><span class="icon-linkedin2"></span></a></li>
+          <li><a href="#" class="social-link"><span class="icon-ico-arrow"></span></a></li>
+          <li><a href="#" class="social-link"><span class="icon-ico-a"></span></a></li>
         </ul>
       </div>
 
@@ -55,7 +55,7 @@
 
 </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/jquery-1.11.3.min.js"><\/script>')</script>
+    <script>window.jQuery || document.write('<script src="<?php echo esc_url( home_url() ); ?>/assets/javascripts/vendors/jquery-1.11.3.min.js"><\/script>')</script>
     <script src="<?php echo esc_url( home_url() ); ?> /assets/javascripts/vendors/bootstrap.min.js"></script>
     <?php wp_footer(); ?>
   </body>

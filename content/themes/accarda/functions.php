@@ -242,9 +242,6 @@ function accarda_process_form() {
 
     global $current_user;
 
-    $keys = get_field_object("befestigung", false, []);
-    //var_dump($keys);
-
     if ( isset($_POST) && isset($_POST['_wpnonce']) ) {
         $attachment = sanitize_text_field($_POST["post_thumbnail"]);
         $file = sanitize_text_field($_POST["post_file"]);
@@ -266,11 +263,14 @@ function accarda_process_form() {
                     add_post_meta($post_id, '_thumbnail_id', $attachment, true);
                 }
 
-                var_dump($file);
-
                 if($file) {
                     add_post_meta($post_id, 'befestigung', $file, true);
                 }
+
+                if( isset($meta["subtitle"]) && $meta["subtitle"] != "" ) {
+                    add_post_meta($post_id, 'subtitle', $meta["subtitle"], true);
+                }
+
                 if( isset($meta["video_embed"]) && $meta["video_embed"] != "" ) {
                     add_post_meta($post_id, 'video_embed', $meta["video_embed"], true);
                 }

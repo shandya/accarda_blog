@@ -25,7 +25,7 @@
     <div class="col-xs-12 post-body">
       <header class="post-header">
         <div class="post-meta-info">
-          <?php echo get_the_category_list( ', ')?>
+          <?php echo get_post_meta(get_the_ID(), "subtitle", true); ?>
         </div>
 
         <?php the_title( '<h1 class="post-title">', '</h1>' ); ?>

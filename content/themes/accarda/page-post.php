@@ -59,15 +59,14 @@ wp_enqueue_media();
       var attachment = media_uploader.state().get('selection').first().toJSON();
 
       $(id).val(attachment.id);
-
-      if(id == '#post_thumbnail') {
-        $('#post_thumbnail_preview').attr("src", attachment.url);
-        $('#post_thumbnail_preview').css("display", 'block');
-      } else {
-        $this.parent().find('span').text(attachment.name);
-      }
+      $this.parent().find('span').text(attachment.name);
     });
 
     media_uploader.open();
   }
+
+  $(document).ready(function() {
+    $('#post_content-html').remove();
+    $('#post_content-tmce').trigger("click");
+  });
 </script>

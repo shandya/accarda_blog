@@ -37,16 +37,16 @@
 		<meta name="twitter:description" content="<?php bloginfo( 'description' ); ?>" />
 		<meta name="twitter:image" content="" />
 
-    <link rel="shortcut icon" href="<?php echo esc_url( home_url() ); ?> /assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="<?php echo esc_url( home_url() ); ?>/assets/images/favicon.ico" />
 
     <title><?php bloginfo( 'name' ); ?></title>
-    <link rel="stylesheet" href="<?php echo esc_url( home_url() ); ?> /assets/stylesheets/site.prefixed.css">
+    <link rel="stylesheet" href="<?php echo esc_url( home_url() ); ?>/assets/stylesheets/site.prefixed.css">
   </head>
   <body><header id="site-header">
   <div class="container wrapper">
     <div class="row">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-        <img src="<?php echo esc_url( home_url() ); ?> /assets/images/logo-accarda.png" alt="<?php bloginfo( 'name' ); ?>" id="header-logo">
+        <img src="<?php echo esc_url( home_url() ); ?>/assets/images/logo-accarda.png" alt="<?php bloginfo( 'name' ); ?>" id="header-logo">
       </a>
     </div>
     
