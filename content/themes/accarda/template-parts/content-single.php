@@ -51,9 +51,10 @@
       </div>
 
 
-      <?php 
 
-        $file = get_field('befestigung');
+      <?php 
+        $file = get_post_meta(get_the_ID(), "befestigung", true);
+        $file = accarda_get_attachment( $file );
 
         if( $file ):
 
@@ -71,8 +72,7 @@
             $icon = 'dashicons-media-text';
           }
 
-          ?> 
-
+      ?> 
           <div class="post-attachment-wrapper">
             <div class="media">
               <div class="media-left media-middle">

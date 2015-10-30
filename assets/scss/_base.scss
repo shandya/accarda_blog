@@ -11,3 +11,12 @@ body {
 *:focus {
     outline: 0;
 }
+
+
+.color-base-font {
+	color: $base-font-color;
+}
+
+.color-accent {
+	color: $accent-color;
+}

@@ -59,19 +59,30 @@
           </button>
         </div>
 
-        <?php
-            wp_nav_menu( array(
-                'menu'              => 'primary',
-                'theme_location'    => 'primary',
-                'depth'             => 1,
-                'container'         => 'div',
-                'container_class'   => 'collapse navbar-collapse',
-                'container_id'      => 'header-navbar',
-                'menu_class'        => 'nav navbar-nav',
-                'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                'walker'            => new wp_bootstrap_navwalker())
-            );
-        ?>
+
+        <div class="collapse navbar-collapse" id="header-navbar">
+           <?php
+              wp_nav_menu( array(
+                  'menu'              => 'primary',
+                  'theme_location'    => 'primary',
+                  'depth'             => 1,
+                  'container'         => 'div',
+                  'container_class'   => '',
+                  'container_id'      => 'header-navbar',
+                  'menu_class'        => 'nav navbar-nav',
+                  'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                  'walker'            => new wp_bootstrap_navwalker())
+              );
+          ?>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo esc_url( get_permalink( get_page_by_path( 'post' )) ); ?>"><span class="icon-pencil hidden-xs"></span> Neuen Beitrag verfassen</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+
+
+
+
     </nav>
 
   </div>

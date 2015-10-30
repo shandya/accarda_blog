@@ -18,7 +18,7 @@ class accarda_widget extends WP_Widget{
  
 	public function __construct()	{
 		$widget_details = array(
-			'classname' => 'my_widget',
+			'classname' => 'accarda-widget-post',
 			'description' => 'Add a custom post to your sidebar.'
 		);
  
@@ -103,7 +103,7 @@ class accarda_widget extends WP_Widget{
 	public function widget( $args, $instance ) {
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
-    $image = apply_filters( 'widget_image', $instance['image'] );
+    	$image = apply_filters( 'widget_image', $instance['image'] );
 		$text = apply_filters( 'widget_text', $instance['text'] );
 		$hyperlink = apply_filters( 'widget_hyperlink', $instance['hyperlink'] );
 
@@ -128,7 +128,7 @@ class accarda_widget extends WP_Widget{
 						<header class="entry-header widget-header">
 								<?php 
 									if ( ! empty( $title ) )
-									echo $args['before_title'] . $title . $args['after_title'];
+									echo $args['before_title'] .$title . $args['after_title'];
 								?>
 						</header>
 

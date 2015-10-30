@@ -36,9 +36,12 @@
 
 #header-navbar {
 	padding: 0;
-	border: 1px solid black;
-	border-left: none;
-	border-right: none;
+	border-top:  1px solid black;
+	border-bottom: 1px solid black;
+
+ 	@include breakpoint(small) {
+		border-top:  none;
+	}
 
 	.navbar-right {
 		margin-right: 0;
