@@ -87,8 +87,15 @@
 .entry.entry-spotlight {
 	border-bottom: 1px solid $navy-blue;
 
-	.entry-body {
+	.entry-title {
+		@include breakpoint(large) {
+			font-size: 3.6rem;
+			line-height: 1;
+			margin-bottom: 2.4rem;
+		}
+	}
 
+	.entry-body {
 		@include breakpoint(small) {
 			position: absolute;
 			padding-top: 2rem;
@@ -96,10 +103,48 @@
 			right: 5%;
 			background: white;
 		}
+		@include breakpoint(large) {
+			padding-left: 2rem;
+			padding-right: 2rem;
+		} 
+	}
+
+	.entry-content p {
+		@include breakpoint(large) {
+			line-height: 1.8;
+	    font-size: 1.5rem;
+		}
 	}
 }
 
 
+.standard-post-wrapper {
+	.entry-thumbnail-wrapper {
+		@include breakpoint(large) {
+			width: 43%;
+		}
+	}
+
+	.entry-body {
+		@include breakpoint(large) {
+			width: 57%;
+		}
+	}
+}
+
+.page-content {
+	.content-wrapper {
+		@include breakpoint(large) {
+			width: 76%;
+		}
+	}
+
+	.right-sidebar {
+		@include breakpoint(large) {
+			width: 24%;
+		}
+	}
+}
 
 
 .entry-content,

@@ -15,7 +15,7 @@
       <?php the_post_thumbnail( 'entry-spotlight-image' ); ?>
     </div>
   </div>
-  <div class="col-sm-5 col-md-4 col-lg-3 entry-body">
+  <div class="col-sm-6 col-md-4 col-lg-3 entry-body">
     <header class="entry-header">
       <div class="post-meta-info">
         <?php echo get_the_category_list( ', ')?>

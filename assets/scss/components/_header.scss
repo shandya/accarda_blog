@@ -16,6 +16,18 @@
 	  margin-bottom: 5rem;
 		width: 100%;
 	}
+
+ 	@include breakpoint(large) {
+ 		margin-bottom: 7rem;
+    margin-top: 4rem;
+	}
+
+}
+
+.navbar {
+ 	@include breakpoint(medium) {
+ 		margin-bottom: 30px;
+	}
 }
 
 .navbar-toggle {
@@ -38,21 +50,29 @@
 	 	@include breakpoint(medium) {
 		    margin: 7.5px -15px;
 		}
+
+		 	@include breakpoint(large) {	
+		    margin: 7.5px -25px;
+			}
 	}
  
 	.navbar-nav > li > a {
+
 	    text-transform: uppercase;
 	    color: black; 
 	    transition: 0.2s all ease-in-out;
 		  font-size: 1rem;
 
 		 	@include breakpoint(small) {	
-				padding: 15px 10px;
+				padding: 10px 15px;
 			}
 
-		 	@include breakpoint(medium) {
-		 		padding: 15px;
+		 	@include breakpoint(medium) {	
 		  	font-size: 1.4rem;
+			}
+
+		 	@include breakpoint(large) {	
+				padding: 10px 25px;
 			}
 
 	}

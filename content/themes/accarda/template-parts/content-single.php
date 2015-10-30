@@ -50,11 +50,6 @@
         <?php endif; ?>
       </div>
 
-      <footer class="post-footer">
-        <div class="like-wrapper">
-          <?php echo getPostLikeLink(get_the_ID());?>
-        </div>
-      </footer>
 
       <?php 
 
@@ -91,7 +86,11 @@
       <?php endif; ?>
 
     
-
+      <footer class="post-footer">
+        <div class="like-wrapper">
+          <?php echo getPostLikeLink(get_the_ID());?>
+        </div>
+      </footer>
 
 
     </div>

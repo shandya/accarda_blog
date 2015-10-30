@@ -15,7 +15,7 @@
 		<?php
 			if ( has_post_thumbnail() ) :  ?>
 
-		<div class="col-md-5">
+		<div class="col-md-5 entry-thumbnail-wrapper">
 			<div class="entry-thumbnail">
 				<?php the_post_thumbnail( 'entry-thumbnail' ); ?>
 			</div>

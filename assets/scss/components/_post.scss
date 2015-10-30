@@ -64,21 +64,22 @@
 }
 
 .post-meta-info {
-  padding-bottom: 0.5em;
+  //padding-bottom: 0.5em;
 
   a {
-    color: $accent-color;
+    color: $base-font-color;
     transition: 0.2s all ease-in-out;
+    text-transform: uppercase;
 
     &:hover {
-      color: lighten($accent-color, 20%);
+      color: lighten($base-font-color, 20%);
       transition: 0.1s all ease-in-out;
       text-decoration: none;
     }
 
     &:active,
     &:focus {
-      color: darken($accent-color, 20%);
+      color: darken($base-font-color, 20%);
       transition: 0.1s all ease-in-out;
     }
   }
