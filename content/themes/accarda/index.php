@@ -75,7 +75,7 @@ get_header(); ?>
           endif; ?>
 
         </div>
-        <div class="col-xs-12 col-sm-4 col-md-3 right-sidebar">
+        <div class="col-xs-12 col-sm-4 col-md-3 index-sidebar">
           <?php get_sidebar(); ?>
         </div>
       </div>
