@@ -16,7 +16,7 @@
 
 a .icon-ico-chevron {
 	display: inline-block;
-	padding-bottom: 0.2em;
+	padding-bottom: 0.35em;
 	vertical-align: middle;
 }
 
@@ -34,7 +34,7 @@ a .icon-ico-chevron {
 	display: inline-block;
   position: relative;
   cursor: pointer;
-  background: #0080c9;
+  background-color: #002341;
   padding: 0.5rem 1rem;
   margin-right: 0.3rem;
   color: white;
@@ -44,14 +44,14 @@ a .icon-ico-chevron {
 
   &:hover {
     text-decoration: none;
-    background-color: #002341;
+    background: #0080c9;
     color: white;
   }
 }
 
 .liked .like-button {
 	text-decoration: none;
-	background-color: #002341;
+	background-color: #0080c9;
 	color: white;
 }
 

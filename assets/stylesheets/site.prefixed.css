@@ -1392,8 +1392,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  /*color: #333333;*/
-  color: #002341;
+  color: #333333;
   background-color: #fff;
 }
 
@@ -7278,6 +7277,8 @@ button.close {
 body {
   border: 10px solid #002341;
   font-family: 'texgyreheros';
+  /*color: #333333;*/
+  color: #002341;
 }
 
 *:focus {
@@ -7290,6 +7291,14 @@ body {
 
 .color-accent {
   color: #0080c9;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
 
 @font-face {
@@ -7443,7 +7452,7 @@ a .icon-ico-chevron {
 
 .liked .like-button {
   text-decoration: none;
-  background-color: #002341;
+  background-color: #0080c9;
   color: white;
 }
 
@@ -7586,6 +7595,7 @@ a .icon-ico-chevron {
 }
 
 .entry-body {
+  position: inherit;
   padding-bottom: 20px;
   padding-bottom: 2rem;
 }
@@ -7600,14 +7610,15 @@ a .icon-ico-chevron {
   line-height: 1.2em;
 }
 
-.entry-spotlight .entry-thumbnail {
-  margin-bottom: 20px;
-  margin-bottom: 2rem;
-}
 .entry-thumbnail img {
   max-width: 100%;
   width: 100%;
   height: auto;
+}
+
+.entry-spotlight .entry-thumbnail {
+  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .read-more-link {
@@ -7630,6 +7641,14 @@ a .icon-ico-chevron {
 }
 .read-more-link:active, .read-more-link:focus {
   color: #003f63;
+}
+
+@media (min-width: 992px) {
+  .entry-footer {
+    position: absolute;
+    bottom: 2rem;
+    right: 0;
+  }
 }
 
 .entry-sidebar {
@@ -8042,6 +8061,10 @@ mark {
   list-style: none;
 }
 
+.avatar {
+  display: none;
+}
+
 .comment-body {
   padding: 10px 0;
   padding: 1rem 0;
@@ -8433,15 +8456,15 @@ mark {
 .widget.record .widget-content {
   line-height: 1.8em;
 }
-.widget.record .widget-content a {
-  font-size: 13px;
-}
 @media (min-width: 768px) {
   .widget.record .widget-content {
-    /*width: 83.33333%;*/
-    /*margin-left: 8.33333%;*/
+    /* 	 	width: 83.33333%;
+      		margin-left: 8.33333%; */
     margin-bottom: 80px;
   }
+}
+.widget.record .widget-content a {
+  font-size: 13px;
 }
 
 .widget.record + .widget.record:before {
@@ -8482,6 +8505,11 @@ mark {
 }
 .front-end-form input[type='submit'] {
   background-color: white;
+}
+
+.wp-editor-container {
+  clear: both;
+  border: solid 1px #DDD;
 }
 
 .entry-roll-wrapper {
@@ -8545,8 +8573,4 @@ mark {
   padding-bottom: 6rem;
 }
 
-.wp-editor-container {
-  clear: both;
-  border: solid 1px #DDD;
-}
 /*# sourceMappingURL=site.prefixed.css.map */

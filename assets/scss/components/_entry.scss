@@ -27,6 +27,7 @@
 }
 
 .entry-body {
+  position: inherit;
 	padding-bottom: 2rem;
 }
 
@@ -39,14 +40,16 @@
 }
 
 .entry-thumbnail {
-	margin-bottom: 2rem;
-
 	img {
 		max-width: 100%;
 		width: 100%;
 		height: auto;
 	}
 } 
+
+.entry-spotlight .entry-thumbnail {
+	margin-bottom: 2rem;
+}
 
 .read-more-link {
 	display: block;
@@ -71,6 +74,16 @@
 		color: darken($accent-color, 20%);
 	}
 }
+
+.entry-footer {
+ 	@include breakpoint(medium) {
+	  position: absolute;
+	  bottom: 2rem;
+	  right: 0;
+	}
+}
+
+
 
 .entry-sidebar {
 /* 	padding-bottom: 3em; */

@@ -117,11 +117,16 @@
 	}
 
 	.widget-content {
-  		line-height: 1.8em;
+  	line-height: 1.8em;
 
 	 	@include breakpoint(small) {
-	 		width: 83.33333%;
-    		margin-left: 8.33333%;
+/* 	 	width: 83.33333%;
+  		margin-left: 8.33333%; */
+  		margin-bottom: 80px;
+		}
+
+		a {
+			font-size: 13px;
 		}
 
 	}

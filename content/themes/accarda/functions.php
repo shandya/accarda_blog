@@ -322,3 +322,39 @@ function remove_admin_bar() {
 	}
 }
 add_action('after_setup_theme', 'remove_admin_bar');
+
+
+
+
+/**
+ * Filter to replace the [caption] shortcode text with HTML5 compliant code
+ *
+ * @return text HTML content describing embedded figure
+ **/
+function getVideoData($content){ 
+
+/*    extract(shortcode_atts(array(
+        'id_only' => ''
+    ), $attr));*/
+
+    if($content != '') {
+        preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $content, $matches);
+        $id = end($matches);
+
+        if(!$id) {
+            $id = $content;
+        }
+    }
+
+    if ( !isset($id) ) {
+        return;
+    }
+
+/*    if ( $id_only ) {
+        return $id;
+    }*/
+
+    return '<iframe class="embed-responsive-item" src="//www.youtube.com/embed/'.$id.'?enablejsapi=1&autoplay=0&autohide=1&modestbranding=0&showinfo=0&rel=0" allowfullscreen></iframe>';
+} 
+
+add_filter('acf/load_value/name=video_embed', 'getVideoData');

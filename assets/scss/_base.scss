@@ -6,6 +6,8 @@
 body {
 	border: 10px solid #002341;
   font-family: 'texgyreheros';
+  /*color: #333333;*/
+  color: #002341;
 }
 
 *:focus {
@@ -19,4 +21,12 @@ body {
 
 .color-accent {
 	color: $accent-color;
+}
+
+.screen-reader-text {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }
