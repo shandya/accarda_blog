@@ -27,7 +27,7 @@
 
 		<header class="entry-header">
 	        <div class="post-meta-info">
-	          <?php echo get_the_category_list( ', ')?>
+				<?php echo get_post_meta(get_the_ID(), "subtitle", true); ?>
 	        </div>
 			
 			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" class="entry-title-link" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>

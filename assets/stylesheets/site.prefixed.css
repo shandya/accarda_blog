@@ -1392,7 +1392,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857;
-  color: #333333;
+  /*color: #333333;*/
+  color: #002341;
   background-color: #fff;
 }
 
@@ -7401,7 +7402,7 @@ body {
 
 a .icon-ico-chevron {
   display: inline-block;
-  padding-bottom: 0.2em;
+  padding-bottom: 0.35em;
   vertical-align: middle;
 }
 
@@ -7421,7 +7422,7 @@ a .icon-ico-chevron {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  background: #0080c9;
+  background-color: #002341;
   padding: 5px 10px;
   padding: 0.5rem 1rem;
   margin-right: 3px;
@@ -7436,7 +7437,7 @@ a .icon-ico-chevron {
 }
 .like-button:hover {
   text-decoration: none;
-  background-color: #002341;
+  background: #0080c9;
   color: white;
 }
 
@@ -7599,7 +7600,7 @@ a .icon-ico-chevron {
   line-height: 1.2em;
 }
 
-.entry-thumbnail {
+.entry-spotlight .entry-thumbnail {
   margin-bottom: 20px;
   margin-bottom: 2rem;
 }
@@ -7879,6 +7880,8 @@ mark {
   margin: 10rem auto 4rem;
   width: 160px;
   width: 16rem;
+  height: 160px;
+  height: 16rem;
 }
 
 .record-title {
@@ -8430,10 +8433,14 @@ mark {
 .widget.record .widget-content {
   line-height: 1.8em;
 }
+.widget.record .widget-content a {
+  font-size: 13px;
+}
 @media (min-width: 768px) {
   .widget.record .widget-content {
-    width: 83.33333%;
-    margin-left: 8.33333%;
+    /*width: 83.33333%;*/
+    /*margin-left: 8.33333%;*/
+    margin-bottom: 80px;
   }
 }
 
@@ -8538,4 +8545,8 @@ mark {
   padding-bottom: 6rem;
 }
 
+.wp-editor-container {
+  clear: both;
+  border: solid 1px #DDD;
+}
 /*# sourceMappingURL=site.prefixed.css.map */

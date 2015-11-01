@@ -101,6 +101,7 @@ class accarda_widget extends WP_Widget{
 	}
  
 	public function widget( $args, $instance ) {
+		$label = (isset($args["id"]) && $args["id"] == "sidebar-1") ? "zur Website" : "Beitrag verfassen";
 
 		$title = apply_filters( 'widget_title', $instance['title'] );
     	$image = apply_filters( 'widget_image', $instance['image'] );
@@ -140,7 +141,7 @@ class accarda_widget extends WP_Widget{
 
               <?php 
                 if ( ! empty( $hyperlink ) )
-                echo '<a href="' . $hyperlink . '" class="read-more-link">Jetzt Lesen <span class="icon-ico-chevron"></span></a>';
+                echo '<a href="' . $hyperlink . '" class="read-more-link">'.$label.' <span class="icon-ico-chevron"></span></a>';
               ?>
 						</div>
 					</div>
@@ -362,21 +363,21 @@ function getPostLikeLink( $post_id ) {
  * Creating Redaktion Post Types
  */
 
-function redaktion_custom_post_type() {
+function contact_custom_post_type() {
   $labels = array(
-    'name'               => _x( 'Redaktions', 'post type general name' ),
-    'singular_name'      => _x( 'Redaktion', 'post type singular name' ),
-    'add_new'            => _x( 'Add New', 'redaktion' ),
-    'add_new_item'       => __( 'Add New Redaktion' ),
-    'edit_item'          => __( 'Edit Redaktion' ),
-    'new_item'           => __( 'New Redaktion' ),
-    'all_items'          => __( 'All Redaktions' ),
-    'view_item'          => __( 'View Redaktion' ),
-    'search_items'       => __( 'Search Redaktions' ),
-    'not_found'          => __( 'No redaktions found' ),
-    'not_found_in_trash' => __( 'No redaktions found in the Trash' ), 
+    'name'               => _x( 'Kontaktperson', 'post type general name' ),
+    'singular_name'      => _x( 'Kontaktperson', 'post type singular name' ),
+    'add_new'            => _x( 'Add New', 'Kontakt' ),
+    'add_new_item'       => __( 'Add New Kontakt' ),
+    'edit_item'          => __( 'Edit Kontakt' ),
+    'new_item'           => __( 'New Kontakt' ),
+    'all_items'          => __( 'All Kontakten' ),
+    'view_item'          => __( 'View Kontakt' ),
+    'search_items'       => __( 'Search Kontakten' ),
+    'not_found'          => __( 'Keine Kontakt gefunden' ),
+    'not_found_in_trash' => __( 'Keine Kontakt gefunden' ),
     'parent_item_colon'  => '',
-    'menu_name'          => 'Redaktions'
+    'menu_name'          => 'Kontakt'
   );
   $args = array(
     'labels'        => $labels,
@@ -397,9 +398,9 @@ function redaktion_custom_post_type() {
 		    'read_private_posts' => 'update_core'
 		),
   );
-  register_post_type( 'redaktion', $args ); 
+  register_post_type( 'contact', $args );
 }
-add_action( 'init', 'redaktion_custom_post_type' );
+add_action( 'init', 'contact_custom_post_type' );
 
 
 

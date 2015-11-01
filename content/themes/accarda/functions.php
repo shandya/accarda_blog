@@ -242,9 +242,6 @@ function accarda_process_form() {
 
     global $current_user;
 
-    $keys = get_field_object("befestigung", false, []);
-    //var_dump($keys);
-
     if ( isset($_POST) && isset($_POST['_wpnonce']) ) {
         $attachment = sanitize_text_field($_POST["post_thumbnail"]);
         $file = sanitize_text_field($_POST["post_file"]);
@@ -266,11 +263,14 @@ function accarda_process_form() {
                     add_post_meta($post_id, '_thumbnail_id', $attachment, true);
                 }
 
-                var_dump($file);
-
                 if($file) {
                     add_post_meta($post_id, 'befestigung', $file, true);
                 }
+
+                if( isset($meta["subtitle"]) && $meta["subtitle"] != "" ) {
+                    add_post_meta($post_id, 'subtitle', $meta["subtitle"], true);
+                }
+
                 if( isset($meta["video_embed"]) && $meta["video_embed"] != "" ) {
                     add_post_meta($post_id, 'video_embed', $meta["video_embed"], true);
                 }
@@ -280,22 +280,45 @@ function accarda_process_form() {
 }
 add_action('init','accarda_process_form');
 
-
 function accarda_get_attachment( $attachment_id ) {
-$attachment = get_post( $attachment_id );
+    $attachment = get_post( $attachment_id );
 
-if($attachment) {
-    return array(
-        'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
-        'caption' => $attachment->post_excerpt,
-        'description' => $attachment->post_content,
-        'href' => get_permalink( $attachment->ID ),
-        'url' => $attachment->guid,
-        'mime_type' => $attachment->post_mime_type,
-        'title' => $attachment->post_title
-    );
-} else {
-    return null;
-}
+    if($attachment) {
+        return array(
+            'alt' => get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ),
+            'caption' => $attachment->post_excerpt,
+            'description' => $attachment->post_content,
+            'href' => get_permalink( $attachment->ID ),
+            'url' => $attachment->guid,
+            'mime_type' => $attachment->post_mime_type,
+            'title' => $attachment->post_title
+        );
+    } else {
+        return null;
+    }
 }
 
+function redirect_to_front_page() {
+    global $current_user;
+    if( $current_user->ID != 0 && !current_user_can('administrator') ){
+        wp_redirect( home_url() );
+        exit;
+    }
+}
+add_action('login_form', 'redirect_to_front_page');
+
+function my_wp_admin_ban(){
+    global $current_user;
+    if( $current_user->ID != 0 && !current_user_can('administrator') ){
+        wp_redirect( home_url() );
+        exit;
+    }
+}
+add_action('admin_init','my_wp_admin_ban');
+
+function remove_admin_bar() {
+	if (!current_user_can('administrator') && !is_admin()) {
+	  show_admin_bar(false);
+	}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
